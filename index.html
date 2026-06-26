@@ -230,6 +230,11 @@
   const navEl = document.getElementById('nav');
   const tg = document.getElementById('navToggle');
   tg.addEventListener('click', () => navEl.classList.toggle('open'));
+  document.addEventListener('click', e => {
+    if (navEl.classList.contains('open') && !navEl.contains(e.target) && e.target !== tg) {
+      navEl.classList.remove('open');
+    }
+  });
 
   /* ===== Activity carousel ===== */
   const ctrack = document.getElementById('track');

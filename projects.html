@@ -54,6 +54,7 @@
     </div>
 
     <!-- 테이블 -->
+    <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;">
     <table class="proj-table">
       <thead>
         <tr>
@@ -66,6 +67,7 @@
       </thead>
       <tbody id="projTbody"></tbody>
     </table>
+    </div>
 
   </div>
 </section>
@@ -147,8 +149,13 @@
   });
 
   /* Nav */
-  document.getElementById('navToggle').addEventListener('click', () => {
-    document.getElementById('nav').classList.toggle('open');
+  const navEl = document.getElementById('nav');
+  const navTg = document.getElementById('navToggle');
+  navTg.addEventListener('click', () => navEl.classList.toggle('open'));
+  document.addEventListener('click', e => {
+    if (navEl.classList.contains('open') && !navEl.contains(e.target) && e.target !== navTg) {
+      navEl.classList.remove('open');
+    }
   });
 
   renderTable('im', '');

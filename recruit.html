@@ -138,8 +138,13 @@
 </footer>
 
 <script>
-  document.getElementById('navToggle').addEventListener('click', () => {
-    document.getElementById('nav').classList.toggle('open');
+  const navEl = document.getElementById('nav');
+  const navTg = document.getElementById('navToggle');
+  navTg.addEventListener('click', () => navEl.classList.toggle('open'));
+  document.addEventListener('click', e => {
+    if (navEl.classList.contains('open') && !navEl.contains(e.target) && e.target !== navTg) {
+      navEl.classList.remove('open');
+    }
   });
 
   /* FAQ accordion */
