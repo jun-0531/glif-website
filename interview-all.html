@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Interview · GLIF</title>
+<meta name="description" content="GLIF Founder &amp; Alumni Interview" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body class="interview-all-page">
+
+<header class="site-header">
+  <a href="index.html" class="brand"><img src="assets/logo-white.png" alt="GLIF" /></a>
+  <nav class="nav" id="nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="projects.html">Projects</a>
+    <a href="members.html">Members</a>
+    <a href="recruit.html" class="active">Recruit</a>
+  </nav>
+  <button class="nav-toggle" id="navToggle" aria-label="메뉴 열기">&#9776;</button>
+</header>
+
+<section class="section">
+  <div class="wrap">
+
+    <h2 class="section-title" style="margin-bottom:48px;">Founder &amp; Alumni Interview</h2>
+
+    <!-- ── Founder Interview ── -->
+    <p class="ia-type-label">Founder Interview</p>
+    <div class="interview-grid">
+
+      <a href="interview-detail.html?id=founder-park" class="interview-card" style="background-image:url('assets/interview/founder-park/01.jpg')"></a>
+      <a href="interview-detail.html?id=founder-song" class="interview-card" style="background-image:url('assets/interview/founder-song/01.jpg')"></a>
+      <a href="interview-detail.html?id=founder-ha" class="interview-card" style="background-image:url('assets/interview/founder-ha/01.jpg')"></a>
+      <a href="interview-detail.html?id=founder-yang" class="interview-card" style="background-image:url('assets/interview/founder-yang/01.jpg')"></a>
+
+    </div><!-- /Founder grid -->
+
+    <!-- ── Alumni Interview ── -->
+    <p class="ia-type-label">Alumni Interview</p>
+    <div class="interview-grid" id="alumniGrid"></div>
+
+  </div>
+</section>
+
+<footer class="ab-footer">
+  <p>성균관대학교 금융투자학회 GLIF<br />
+     서울특별시 종로구 성균관로 25-2<br />
+     이메일 : <a href="mailto:glifskku1398@gmail.com">glifskku1398@gmail.com</a> &nbsp;/&nbsp; Instagram : <a href="https://instagram.com/glif_skku">@glif_skku</a></p>
+  <p class="copy">Copyright 2026 성균관대학교 금융투자학회 GLIF. All rights reserved.</p>
+</footer>
+
+<script>
+  document.getElementById('navToggle').addEventListener('click', () => {
+    document.getElementById('nav').classList.toggle('open');
+  });
+
+  /* Alumni Interview data — 이름/기수 업데이트 시 여기만 수정 */
+  const ALUMNI = [
+    { id: 'alumni-8-1',  cardName: '8기 강유진 선배님' },
+    { id: 'alumni-11-1', cardName: '11기 류제현 선배님' },
+    { id: 'alumni-12-1', cardName: '12기 이현기 선배님' },
+    { id: 'alumni-14-1', cardName: '12기 조준우 선배님' },
+    { id: 'alumni-15-1', cardName: '15기 신지민 선배님' },
+  ];
+
+  const grid = document.getElementById('alumniGrid');
+  ALUMNI.forEach(a => {
+    grid.innerHTML += `<a href="interview-detail.html?id=${a.id}" class="interview-card" style="background-image:url('assets/interview/${a.id}/01.jpg')"></a>`;
+  });
+</script>
+</body>
+</html>

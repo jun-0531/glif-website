@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>About Us · GLIF</title>
+<meta name="description" content="GLIF 소개 — 성균관대학교 금융투자학회" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap" />
+<link rel="stylesheet" href="styles.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+</head>
+<body class="about-page">
+
+<header class="site-header">
+  <a href="index.html" class="brand"><img src="assets/logo-white.png" alt="GLIF" /></a>
+  <nav class="nav" id="nav">
+    <a href="index.html">Home</a>
+    <a href="about.html" class="active">About Us</a>
+    <a href="projects.html">Projects</a>
+    <a href="members.html">Members</a>
+    <a href="recruit.html">Recruit</a>
+  </nav>
+  <button class="nav-toggle" id="navToggle" aria-label="메뉴 열기">&#9776;</button>
+</header>
+
+<!-- Hero (같은 스타일, About Us 타이틀) -->
+<div class="about-hero">
+  <img src="assets/campus-header.png" alt="성균관대학교 캠퍼스" />
+  <div class="about-hero-overlay">
+    <h1 class="about-hero-title">About Us</h1>
+    <p class="about-hero-sub">Global Leader in Finance</p>
+  </div>
+</div>
+
+<!-- Tab Navigation -->
+<nav class="about-tabs">
+  <div class="about-tabs-inner">
+    <button class="about-tab active" data-tab="introduction">Introduction</button>
+    <button class="about-tab" data-tab="curriculum">Curriculum</button>
+    <button class="about-tab" data-tab="alumni">Alumni</button>
+  </div>
+</nav>
+
+<!-- ── Panel: Introduction ── -->
+<div class="about-panel active" id="about-introduction">
+
+  <section class="section intro-section">
+    <div class="wrap intro-wrap">
+      <h2 class="section-title">Introduction</h2>
+      <div class="intro-body">
+        <p>GLIF는 'Global Leader in Finance'의 약자로, 성균관대학교 글로벌 경제학과 &amp; 글로벌 경영학과 대상 금융투자학회입니다. GLIF의 강점은 '<strong>유연성</strong>'으로 <strong>기초부터 심화</strong>까지, <strong>국내에서 외국계 금융권까지</strong> 광범위한 진로를 탐색할 수 있는 커리큘럼과 네트워크입니다.</p>
+
+        <div class="intro-steps">
+          <div class="intro-step">
+            <div class="intro-step-num">1</div>
+            <div class="intro-step-body">
+              <h4>Daily Session</h4>
+              <p>매일 진행되는 Daily Session을 통해 금융권 공통의 기본기를 연마합니다.</p>
+            </div>
+          </div>
+          <div class="intro-step">
+            <div class="intro-step-num">2</div>
+            <div class="intro-step-body">
+              <h4>심화 Project</h4>
+              <p>IM팀과 자산운용팀으로 나누어져 각 직군별로 필요한 지식에 대한 심화 프로젝트를 진행합니다. 학회원들은 2학기 동안 자유롭게 팀 간 이동이 가능합니다.</p>
+            </div>
+          </div>
+          <div class="intro-step">
+            <div class="intro-step-num">3</div>
+            <div class="intro-step-body">
+              <h4>Career Session &amp; 홈커밍</h4>
+              <p>홈커밍 및 커리어 세션을 통해 현업에서 근무 중인 선배님들의 현장감 있는 피드백과 진로 준비에 관한 조언을 들을 수 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section act-detail-section">
+    <div class="wrap">
+      <div class="act-detail-grid">
+
+        <div class="act-col">
+          <h3 class="act-col-title">Daily</h3>
+          <div class="act-item">
+            <h4>01. Newsclipping</h4>
+            <p>- 영문 기사 스크랩을 통해<br />금융 이슈 Follow-up</p>
+          </div>
+          <div class="act-item">
+            <h4>02. Market Follow-up</h4>
+            <p>국내외 시장 금리, 환율 등<br />경제들 Follow-up</p>
+          </div>
+        </div>
+
+        <div class="act-col">
+          <h3 class="act-col-title">Projects</h3>
+          <div class="act-item">
+            <h4>01. Kick-off Project</h4>
+            <p>- 금융업 직무 조사<br />- 매크로 분석 발표<br />- IM팀 Industry Report<br />- 자산운용팀 Market view</p>
+          </div>
+          <div class="act-item">
+            <h4>02. Main Project</h4>
+            <p>- IM(Information Memorandum) Project<br />- Asset Management Project</p>
+          </div>
+        </div>
+
+        <div class="act-col">
+          <h3 class="act-col-title">Career</h3>
+          <div class="act-item">
+            <h4>01. Career Session</h4>
+            <p>- S&amp;T, 리서치, PE 기업금융 등<br />금융업 현직에 계신 alumni의<br />경험과 조언</p>
+          </div>
+          <div class="act-item">
+            <h4>02. Alumni Networking</h4>
+            <p>- 매학기 홈커밍, 종강총회 진행<br />- Career Session 후 회식 진행<br />(자유롭게 참석 여부 결정 가능)</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</div><!-- /about-introduction -->
+
+<!-- ── Panel: Curriculum ── -->
+<div class="about-panel" id="about-curriculum">
+
+  <section class="section cycle" id="curriculum">
+    <div class="wrap">
+      <h2 class="section-title">Curriculum Cycle</h2>
+      <p class="section-sub">GLIF 활동은 2학기로 구성되어 있습니다. 1학기는 Following 기수로 참여해 금융 기본기를 다집니다. 또한 IM팀과 운용팀을 선택해 각 팀의 프로젝트를 경험하며 실력을 키웁니다. 2학기는 Leading 기수가 되어 프로젝트를 이끕니다. 방학 중 공식 활동은 없으나, 희망자에 한해 자발적 스터디를 진행합니다.</p>
+      <div class="curriculum-img-wrap">
+        <img src="assets/curriculum.png" alt="GLIF 커리큘럼 사이클" />
+      </div>
+    </div>
+  </section>
+
+
+</div><!-- /about-curriculum -->
+
+<!-- ── Panel: Alumni ── -->
+<div class="about-panel" id="about-alumni">
+
+  <section class="section about-alumni-section">
+    <div class="wrap">
+      <h2 class="section-title">GLIF's Alumni Network</h2>
+      <p class="section-sub">GLIF는 국내외 증권사, IB, 컨설팅 등 다양한 분야에서 활약하는 폭넓은 Alumni를 보유하고 있습니다. 글로벌 경제학과 &amp; 글로벌 경영학과 대상으로만 운영되는 학회인만큼 끈끈한 네트워크를 자랑합니다.</p>
+      <div class="alumni-chart-card">
+        <div class="ac-chart-wrap">
+          <canvas id="alumniDonut"></canvas>
+        </div>
+        <div class="ac-legend" id="acLegend"></div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /about-alumni -->
+
+<footer class="ab-footer">
+  <p>성균관대학교 금융투자학회 GLIF<br />
+     서울특별시 종로구 성균관로 25-2<br />
+     이메일 : <a href="mailto:glifskku1398@gmail.com">glifskku1398@gmail.com</a> &nbsp;/&nbsp; Instagram : <a href="https://instagram.com/glif_skku">@glif_skku</a></p>
+  <p class="copy">Copyright 2026 성균관대학교 금융투자학회 GLIF. All rights reserved.</p>
+</footer>
+
+<script>
+  const navEl = document.getElementById('nav');
+  document.getElementById('navToggle').addEventListener('click', () => navEl.classList.toggle('open'));
+
+  /* ===== About tabs ===== */
+  const aboutTabs   = document.querySelectorAll('.about-tab');
+  const aboutPanels = document.querySelectorAll('.about-panel');
+
+  aboutTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      aboutTabs.forEach(t => t.classList.remove('active'));
+      aboutPanels.forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById('about-' + tab.dataset.tab).classList.add('active');
+    });
+  });
+
+
+  /* ===== Alumni Donut Chart ===== */
+  const ALUMNI_DATA = [
+    { label: '자산운용사/헤지펀드/사모펀드', pct: 24, c: '#5B80C4' },
+    { label: '증권사',           pct: 15, c: '#4A8C68' },
+    { label: '기타',             pct: 13, c: '#7B60B8' },
+    { label: '금융공기업',       pct: 12, c: '#A898D2' },
+    { label: 'IB/VC',           pct: 11, c: '#B86868' },
+    { label: '대기업',           pct:  9, c: '#B88E48' },
+    { label: '회계법인',         pct:  9, c: '#374151' },
+    { label: '은행/보험/카드',   pct:  7, c: '#8E9BAA' },
+  ];
+  const lgdEl = document.getElementById('acLegend');
+  ALUMNI_DATA.forEach(d => {
+    const row = document.createElement('div');
+    row.className = 'ac-legend-item';
+    row.innerHTML = `
+      <span class="ac-dot" style="background:${d.c}"></span>
+      <span class="ac-pct">${d.pct}%</span>
+      <span class="ac-label">${d.label}</span>`;
+    lgdEl.appendChild(row);
+  });
+
+  const actx = document.getElementById('alumniDonut');
+  if (actx && window.Chart) {
+    const logoImg = new Image();
+    let chartRef = null;
+    logoImg.onload = () => { if (chartRef) chartRef.draw(); };
+    logoImg.src = 'assets/logo.png';
+
+    const pieLabels = {
+      id: 'pieLabels',
+      afterDatasetsDraw(chart) {
+        chartRef = chart;
+        const { ctx } = chart;
+        const meta = chart.getDatasetMeta(0);
+
+        /* ── GLIF 로고 (canvas에 직접 렌더링) ── */
+        if (meta.data.length > 0 && logoImg.complete && logoImg.naturalWidth > 0) {
+          const arc0   = meta.data[0];
+          const innerR = arc0.innerRadius;
+          const cx = arc0.x, cy = arc0.y;
+          const logoW = innerR * 1.5;
+          const logoH = logoW * (logoImg.naturalHeight / logoImg.naturalWidth);
+          ctx.save();
+          ctx.drawImage(logoImg, cx - logoW / 2, cy - logoH / 2, logoW, logoH);
+          ctx.restore();
+        }
+
+        /* ── % 라벨 ── */
+        meta.data.forEach((arc, i) => {
+          const pct = ALUMNI_DATA[i].pct;
+          const mid = (arc.startAngle + arc.endAngle) / 2;
+          const r   = (arc.innerRadius + arc.outerRadius) / 2;
+          const x   = arc.x + r * Math.cos(mid);
+          const y   = arc.y + r * Math.sin(mid);
+          ctx.save();
+          ctx.fillStyle    = '#fff';
+          ctx.font         = 'bold 13px Pretendard Variable, sans-serif';
+          ctx.textAlign    = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.shadowColor  = 'rgba(0,0,0,.5)';
+          ctx.shadowBlur   = 5;
+          ctx.fillText(pct + '%', x, y);
+          ctx.restore();
+        });
+      }
+    };
+
+    new Chart(actx, {
+      type: 'doughnut',
+      plugins: [pieLabels],
+      data: {
+        labels: ALUMNI_DATA.map(d => d.label),
+        datasets: [{
+          data: ALUMNI_DATA.map(d => d.pct),
+          backgroundColor: ALUMNI_DATA.map(d => d.c),
+          borderWidth: 1,
+          borderColor: '#111',
+          hoverBorderColor: '#111',
+          hoverOffset: 6,
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        cutout: '65%',
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              title: c => [ALUMNI_DATA[c[0].dataIndex].label],
+              label: c => `  ${ALUMNI_DATA[c.dataIndex].pct}%`,
+            },
+            backgroundColor: 'rgba(23,32,88,.9)',
+            titleColor: '#fff',
+            bodyColor: 'rgba(255,255,255,.8)',
+            padding: 10,
+            cornerRadius: 6,
+          }
+        },
+        animation: false
+      }
+    });
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Recruiting 공고 · GLIF</title>
+<meta name="description" content="GLIF 19기 리쿠르팅 공고" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body class="recruit-poster-page">
+
+<header class="site-header">
+  <a href="index.html" class="brand"><img src="assets/logo-white.png" alt="GLIF" /></a>
+  <nav class="nav" id="nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="projects.html">Projects</a>
+    <a href="members.html">Members</a>
+    <a href="recruit.html" class="active">Recruit</a>
+  </nav>
+  <button class="nav-toggle" id="navToggle" aria-label="메뉴 열기">&#9776;</button>
+</header>
+
+<section class="section">
+  <div class="wrap">
+    <h2 class="section-title" style="text-align:center; margin-bottom:48px;">Recruiting 공고</h2>
+    <div class="rp-poster-wrap">
+      <img src="assets/recruiting-poster.png" alt="GLIF 19기 리쿠르팅 포스터" />
+    </div>
+    <p class="rp-text">
+      글리프 19기 지원서를 다운로드하여 양식에 맞게 작성한 후, 마감일 전까지 PDF 파일로 변환하여 하단의 메일로 보내주시기 바랍니다.
+      당일 자정까지 수신 확인 이메일을 보내드릴 예정입니다. 혹시 받지 못하신 분들은 회장 전화번호로 연락 부탁드립니다. 감사합니다.
+    </p>
+  </div>
+</section>
+
+<footer class="ab-footer">
+  <p>성균관대학교 금융투자학회 GLIF<br />
+     서울특별시 종로구 성균관로 25-2<br />
+     이메일 : <a href="mailto:glifskku1398@gmail.com">glifskku1398@gmail.com</a> &nbsp;/&nbsp; Instagram : <a href="https://instagram.com/glif_skku">@glif_skku</a></p>
+  <p class="copy">Copyright 2026 성균관대학교 금융투자학회 GLIF. All rights reserved.</p>
+</footer>
+
+<script>
+  document.getElementById('navToggle').addEventListener('click', () => {
+    document.getElementById('nav').classList.toggle('open');
+  });
+</script>
+</body>
+</html>

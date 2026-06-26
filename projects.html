@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Projects · GLIF</title>
+<meta name="description" content="GLIF 프로젝트 자료실 — IM팀 & 자산운용팀" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body class="projects-page">
+
+<header class="site-header">
+  <a href="index.html" class="brand"><img src="assets/logo-white.png" alt="GLIF" /></a>
+  <nav class="nav" id="nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="projects.html" class="active">Projects</a>
+    <a href="members.html">Members</a>
+    <a href="recruit.html">Recruit</a>
+  </nav>
+  <button class="nav-toggle" id="navToggle" aria-label="메뉴 열기">&#9776;</button>
+</header>
+
+<!-- Hero -->
+<div class="about-hero">
+  <img src="assets/campus-header.png" alt="성균관대학교 캠퍼스" />
+  <div class="about-hero-overlay">
+    <h1 class="about-hero-title">Projects</h1>
+    <p class="about-hero-sub">GLIF 연구 보고서 아카이브</p>
+  </div>
+</div>
+
+<!-- Tab nav (About Us 스타일) -->
+<nav class="about-tabs proj-team-tabs">
+  <div class="about-tabs-inner">
+    <button class="about-tab active" data-team="im">IM Projects</button>
+    <button class="about-tab" data-team="am">자산운용팀 Projects</button>
+  </div>
+</nav>
+
+<!-- 콘텐츠 -->
+<section class="section projects-section">
+  <div class="wrap">
+
+    <!-- 검색 -->
+    <div class="proj-search">
+      <label class="proj-search-label">PROJECT 검색</label>
+      <input type="text" class="proj-search-input" id="searchInput" placeholder="프로젝트명 또는 학기 검색" />
+      <button class="proj-search-btn" id="searchBtn">Search</button>
+    </div>
+
+    <!-- 테이블 -->
+    <table class="proj-table">
+      <thead>
+        <tr>
+          <th style="width:60px">번호</th>
+          <th style="width:220px">Projects</th>
+          <th style="width:290px">학기</th>
+          <th style="width:150px">발간일</th>
+          <th style="width:110px">다운로드</th>
+        </tr>
+      </thead>
+      <tbody id="projTbody"></tbody>
+    </table>
+
+  </div>
+</section>
+
+<footer class="ab-footer">
+  <p>성균관대학교 금융투자학회 GLIF<br />
+     서울특별시 종로구 성균관로 25-2<br />
+     이메일 : <a href="mailto:glifskku1398@gmail.com">glifskku1398@gmail.com</a> &nbsp;/&nbsp; Instagram : <a href="https://instagram.com/glif_skku">@glif_skku</a></p>
+  <p class="copy">Copyright 2026 성균관대학교 금융투자학회 GLIF. All rights reserved.</p>
+</footer>
+
+<script>
+  const DATA = {
+    im: [
+      { id: 9, name: '조선 산업보고서',         term: '26-1 IM Kick-off Project',     date: '2026-04-10', url: 'assets/projects/im_09_조선_산업보고서.pdf' },
+      { id: 8, name: '전력인프라 산업보고서',     term: '26-1 IM Kick-off Project',     date: '2026-04-10', url: 'assets/projects/im_08_전력인프라_산업보고서.pdf' },
+      { id: 7, name: '제약&바이오 산업보고서',   term: 'Winter Vacation Study',        date: '2026-01-31', url: 'assets/projects/im_07_제약바이오_산업보고서.pdf' },
+      { id: 6, name: '위성 산업보고서',          term: 'Winter Vacation Study',        date: '2026-01-31', url: 'assets/projects/im_06_위성_산업보고서.pdf' },
+      { id: 5, name: '방산 산업보고서',          term: '25-2 IM Kick-off Project',     date: '2025-10-10', url: 'assets/projects/im_05_방산_산업보고서.pdf' },
+      { id: 4, name: '화장품 산업보고서',         term: '25-2 IM Kick-off Project',     date: '2025-10-10', url: 'assets/projects/im_04_화장품_산업보고서.pdf' },
+      { id: 3, name: 'HBM 산업보고서',           term: 'Summer Vacation Study',        date: '2025-08-14', url: 'assets/projects/im_03_HBM_산업보고서.pdf' },
+      { id: 2, name: '원자력 산업보고서',         term: '25-1 IM Kick-off Project',     date: '2025-04-11', url: 'assets/projects/im_02_원자력_산업보고서.pdf' },
+      { id: 1, name: '로봇 산업보고서',          term: '25-1 IM Kick-off Project',     date: '2025-04-11', url: 'assets/projects/im_01_로봇_산업보고서.pdf' },
+    ],
+    am: [
+      { id: 6, name: 'Global Asset Allocation', term: '26-1 자산운용팀 Main Project',     date: '2026-06-05', url: 'assets/projects/am_06_GAA_26-1.pdf' },
+      { id: 5, name: 'Market View',             term: '26-1 자산운용팀 Kick-off Project', date: '2026-04-10', url: 'assets/projects/am_05_Market_View_26-1.pdf' },
+      { id: 4, name: 'Global Asset Allocation', term: '25-2 자산운용팀 Main Project',     date: '2025-12-05', url: 'assets/projects/am_04_GAA_25-2.pdf' },
+      { id: 3, name: 'Market View',             term: '25-2 자산운용팀 Kick-off Project', date: '2025-10-10', url: 'assets/projects/am_03_Market_View_25-2.pdf' },
+      { id: 2, name: 'Global Asset Allocation', term: '25-1 자산운용팀 Main Project',     date: '2025-06-06', url: 'assets/projects/am_02_GAA_25-1.pdf' },
+      { id: 1, name: 'Market View',             term: '25-1 자산운용팀 Kick-off Project', date: '2025-04-11', url: 'assets/projects/am_01_Market_View_25-1.pdf' },
+    ]
+  };
+
+  let currentTeam = 'im';
+
+  function renderTable(team, filter) {
+    const q = (filter || '').trim().toLowerCase();
+    const rows = DATA[team].filter(p =>
+      p.name.toLowerCase().includes(q) ||
+      p.term.toLowerCase().includes(q)
+    );
+    const tbody = document.getElementById('projTbody');
+    if (!rows.length) {
+      tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;padding:40px;color:#9ba3af">검색 결과가 없습니다.</td></tr>';
+      return;
+    }
+    tbody.innerHTML = rows.map(p => `
+      <tr>
+        <td class="num-cell" style="text-align:center">${p.id}</td>
+        <td>${p.name}</td>
+        <td>${p.term}</td>
+        <td>${p.date}</td>
+        <td>
+          ${p.url
+            ? `<a class="dl-btn" href="${p.url}" target="_blank" rel="noopener">다운로드</a>`
+            : `<span class="dl-btn disabled">다운로드</span>`}
+        </td>
+      </tr>`).join('');
+  }
+
+  /* 팀 탭 */
+  document.querySelectorAll('.proj-team-tabs .about-tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.proj-team-tabs .about-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentTeam = btn.dataset.team;
+      document.getElementById('searchInput').value = '';
+      renderTable(currentTeam, '');
+    });
+  });
+
+  /* 검색 */
+  document.getElementById('searchBtn').addEventListener('click', () => {
+    renderTable(currentTeam, document.getElementById('searchInput').value);
+  });
+  document.getElementById('searchInput').addEventListener('keydown', e => {
+    if (e.key === 'Enter') renderTable(currentTeam, e.target.value);
+  });
+
+  /* Nav */
+  document.getElementById('navToggle').addEventListener('click', () => {
+    document.getElementById('nav').classList.toggle('open');
+  });
+
+  renderTable('im', '');
+</script>
+</body>
+</html>
