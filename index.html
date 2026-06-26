@@ -291,6 +291,7 @@
 
   function onWheel(e) {
     if (!fpOn) return;
+    if (e.ctrlKey || e.metaKey) return;
     e.preventDefault();
     if (locked) return;
     if (e.deltaY > 1)  goTo(cur + 1);
