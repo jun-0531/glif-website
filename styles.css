@@ -1101,17 +1101,21 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
   .acts-panel::before {
     content: '';
     position: absolute; border-radius: 50%; pointer-events: none;
-    width: 340px; height: 340px;
-    top: 20px; right: -110px;
+    width: 380px; height: 380px;
+    top: -50px; right: -110px;
     background: radial-gradient(circle at center,
-      rgba(23,32,88,.016) 0%,   rgba(23,32,88,.016) 17%,
-      transparent 17.5%,         transparent 26%,
-      rgba(23,32,88,.034) 26.5%, rgba(23,32,88,.034) 27.5%,
-      transparent 28%,           transparent 43%,
-      rgba(23,32,88,.024) 43.5%, rgba(23,32,88,.024) 44.5%,
-      transparent 45%,           transparent 61%,
-      rgba(23,32,88,.016) 61.5%, rgba(23,32,88,.016) 62%,
-      transparent 62.5%
+      rgba(23,32,88,.017) 0%,   rgba(23,32,88,.017) 14%,
+      transparent 14.5%,         transparent 22%,
+      rgba(23,32,88,.037) 22.5%, rgba(23,32,88,.037) 23.5%,
+      transparent 24%,           transparent 36%,
+      rgba(23,32,88,.026) 36.5%, rgba(23,32,88,.026) 37.5%,
+      transparent 38%,           transparent 51%,
+      rgba(23,32,88,.018) 51.5%, rgba(23,32,88,.018) 52.5%,
+      transparent 53%,           transparent 66%,
+      rgba(23,32,88,.012) 66.5%, rgba(23,32,88,.012) 67%,
+      transparent 67.5%,         transparent 80%,
+      rgba(23,32,88,.008) 80.5%, rgba(23,32,88,.008) 81%,
+      transparent 81.5%
     );
   }
   .acts-panel::after {
