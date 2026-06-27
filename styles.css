@@ -988,54 +988,76 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
   .footer-nav { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
   .footer-nav a { padding: 8px 6px; font-size: 12px; text-align: center; letter-spacing: .02em; white-space: nowrap; }
 
-  /* Alumni: subtle dot pattern + ring accent, toned down so it doesn't compete with content */
+  /* Alumni: back to the original draft's big paired rings (vertically centered, bleeding from both edges toward the middle) plus a small center accent so the middle doesn't feel empty */
   .alumni {
     background:
-      radial-gradient(circle, rgba(23,32,88,.015) 1px, transparent 1px) 0 0 / 28px 28px,
+      radial-gradient(circle, rgba(23,32,88,.018) 1px, transparent 1px) 0 0 / 28px 28px,
+      radial-gradient(circle at center,
+        rgba(23,32,88,.013) 0%,   rgba(23,32,88,.013) 17%,
+        transparent 17.5%,         transparent 26%,
+        rgba(23,32,88,.028) 26.5%, rgba(23,32,88,.028) 27.5%,
+        transparent 28%,           transparent 43%,
+        rgba(23,32,88,.019) 43.5%, rgba(23,32,88,.019) 44.5%,
+        transparent 45%,           transparent 61%,
+        rgba(23,32,88,.013) 61.5%, rgba(23,32,88,.013) 62%,
+        transparent 62.5%
+      ) no-repeat center 50% / 220px 220px,
       var(--gray-bg);
   }
   .alumni::before {
     content: '';
-    width: 280px; height: 280px;
-    top: 50px; right: -90px;
-    transform: none;
+    width: 420px; height: 420px;
+    top: 50%; right: -130px;
+    transform: translateY(-50%);
     background: radial-gradient(circle at center,
-      rgba(23,32,88,.019) 0%,   rgba(23,32,88,.019) 17%,
+      rgba(23,32,88,.020) 0%,   rgba(23,32,88,.020) 17%,
       transparent 17.5%,         transparent 26%,
-      rgba(23,32,88,.042) 26.5%, rgba(23,32,88,.042) 27.5%,
+      rgba(23,32,88,.045) 26.5%, rgba(23,32,88,.045) 27.5%,
       transparent 28%,           transparent 43%,
-      rgba(23,32,88,.029) 43.5%, rgba(23,32,88,.029) 44.5%,
+      rgba(23,32,88,.031) 43.5%, rgba(23,32,88,.031) 44.5%,
       transparent 45%,           transparent 61%,
-      rgba(23,32,88,.019) 61.5%, rgba(23,32,88,.019) 62%,
-      transparent 62.5%
+      rgba(23,32,88,.020) 61.5%, rgba(23,32,88,.020) 62%,
+      transparent 62.5%,         transparent 79%,
+      rgba(23,32,88,.012) 79.5%, rgba(23,32,88,.012) 80%,
+      transparent 80.5%
     );
   }
-  /* Small floating accent ring, kept well inside the section so it never bleeds above into activity */
+  /* Small floating accent circle, top-right — matches original draft, stays inside section bounds */
   .alumni::after {
     content: '';
     position: absolute; border-radius: 50%; pointer-events: none;
-    width: 90px; height: 90px;
-    top: 220px; right: 36px;
+    width: 110px; height: 110px;
+    top: 70px; right: 28px;
     border: 1px solid rgba(23,32,88,.05);
-    box-shadow: 0 0 0 10px rgba(23,32,88,.012), 0 0 0 20px rgba(23,32,88,.007);
+    box-shadow: 0 0 0 12px rgba(23,32,88,.013), 0 0 0 24px rgba(23,32,88,.007);
   }
   .alumni-deco { display: block; }
   .alumni-deco::before {
-    width: 280px; height: 280px;
-    top: auto; bottom: 30px; left: -80px;
-    transform: none;
+    width: 420px; height: 420px;
+    top: 50%; bottom: auto; left: -130px;
+    transform: translateY(-50%);
     background: radial-gradient(circle at center,
-      rgba(23,32,88,.016) 0%,   rgba(23,32,88,.016) 17%,
+      rgba(23,32,88,.020) 0%,   rgba(23,32,88,.020) 17%,
       transparent 17.5%,         transparent 26%,
-      rgba(23,32,88,.036) 26.5%, rgba(23,32,88,.036) 27.5%,
+      rgba(23,32,88,.045) 26.5%, rgba(23,32,88,.045) 27.5%,
       transparent 28%,           transparent 43%,
-      rgba(23,32,88,.024) 43.5%, rgba(23,32,88,.024) 44.5%,
+      rgba(23,32,88,.031) 43.5%, rgba(23,32,88,.031) 44.5%,
       transparent 45%,           transparent 61%,
-      rgba(23,32,88,.016) 61.5%, rgba(23,32,88,.016) 62%,
-      transparent 62.5%
+      rgba(23,32,88,.020) 61.5%, rgba(23,32,88,.020) 62%,
+      transparent 62.5%,         transparent 79%,
+      rgba(23,32,88,.012) 79.5%, rgba(23,32,88,.012) 80%,
+      transparent 80.5%
     );
   }
-  .alumni-deco::after { content: none; }
+  /* Small floating accent circle, bottom-left — matches original draft */
+  .alumni-deco::after {
+    content: '';
+    position: absolute; border-radius: 50%; pointer-events: none;
+    width: 90px; height: 90px;
+    bottom: 60px; left: 24px;
+    border: 1px solid rgba(23,32,88,.05);
+    box-shadow: 0 0 0 11px rgba(23,32,88,.013), 0 0 0 22px rgba(23,32,88,.007);
+  }
 
   /* Alumni: flows directly from activity section above — no visual break */
   .alumni.section { padding-block: 36px 36px; }
