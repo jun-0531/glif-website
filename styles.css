@@ -978,9 +978,10 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
   /* Oversized hero-bg so parallax translateY has room without showing gap at top */
   .hero-bg { top: -25%; bottom: auto; height: 150%; }
 
-  /* Footer nav: single row on mobile */
-  .footer-inner { padding-top: clamp(40px, 10vh, 72px); padding-bottom: clamp(36px, 8vh, 60px); }
-  .footer-logo-img { height: clamp(80px, 18vh, 120px); margin-bottom: 20px; }
+  /* Footer: taller photo section fills ~screen height */
+  .site-footer { min-height: 90svh; }
+  .footer-inner { padding-top: clamp(48px, 12vh, 88px); padding-bottom: clamp(48px, 12vh, 88px); }
+  .footer-logo-img { height: clamp(100px, 22vh, 150px); margin-bottom: 24px; }
   .footer-nav { flex-wrap: nowrap; gap: 6px; }
   .footer-nav a { flex: 1; padding: 12px 6px; font-size: 12px; text-align: center; letter-spacing: .02em; white-space: nowrap; }
 
@@ -1018,7 +1019,7 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
     padding: 28px var(--gut) 0;
   }
   .activity { background: var(--gray-bg); color: var(--ink); }
-  .activity.section { padding-top: 28px; }
+  .activity.section { padding-block: 28px; }
   .activity .section-title { color: var(--ink); font-size: clamp(18px, 4.5vw, 22px); margin-bottom: 0; }
   .activity .dots button { background: rgba(23,32,88,.18); color: var(--navy); }
   .activity .dots button.active { background: var(--navy); color: #fff; }
@@ -1096,7 +1097,7 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
   .dl-btn { font-size: 13px; padding: 7px 10px; }
 
   /* Reduce whitespace above "GLIF's Activity Structure" by ~50% */
-  .acts-panel.section { padding-block-start: 36px; }
+  .acts-panel.section { padding-block: 36px; }
   .acts-panel-title { padding-top: 0; }
 }
 
