@@ -1076,6 +1076,25 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
     padding: 28px var(--gut) 0;
   }
   .activity { color: var(--ink); }
+  /* Right-side ring continues the alumni decoration upward, ties the two sections together */
+  .activity::before {
+    content: '';
+    position: absolute; border-radius: 50%; pointer-events: none;
+    width: 360px; height: 360px;
+    top: -40px; right: -110px;
+    background: radial-gradient(circle at center,
+      rgba(23,32,88,.019) 0%,   rgba(23,32,88,.019) 17%,
+      transparent 17.5%,         transparent 26%,
+      rgba(23,32,88,.042) 26.5%, rgba(23,32,88,.042) 27.5%,
+      transparent 28%,           transparent 43%,
+      rgba(23,32,88,.029) 43.5%, rgba(23,32,88,.029) 44.5%,
+      transparent 45%,           transparent 61%,
+      rgba(23,32,88,.019) 61.5%, rgba(23,32,88,.019) 62%,
+      transparent 62.5%,         transparent 79%,
+      rgba(23,32,88,.012) 79.5%, rgba(23,32,88,.012) 80%,
+      transparent 80.5%
+    );
+  }
   .activity.section { padding-block: 20px 0; }
   .activity .section-title { color: var(--ink); font-size: clamp(18px, 4.5vw, 22px); margin-bottom: 0; }
   .activity .carousel { margin-top: 20px; }
