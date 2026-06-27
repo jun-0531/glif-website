@@ -1007,6 +1007,8 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
     scrollbar-width: none;
   }
   .about-tabs::-webkit-scrollbar { display: none; }
+  /* Let inner expand to natural width so scroll container sees real overflow */
+  .about-tabs-inner { min-width: max-content; padding-inline: var(--gut); }
 
   /* Activities card title — reduce oversized font */
   .acts-section-title { font-size: 24px; }
@@ -1016,6 +1018,15 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
 
   /* Header logo — slightly smaller on mobile */
   .brand img { height: 54px; }
+
+  /* About page: reduce overly large intro/sub text on mobile */
+  .intro-body > p:first-child { font-size: clamp(16px, 2vw, 19px); text-align: left; }
+  .intro-body p { font-size: clamp(15px, 1.6vw, 17px); }
+  .about-page .cycle .section-sub,
+  .about-page .about-alumni-section .section-sub {
+    font-size: clamp(15px, 1.6vw, 17px);
+    text-align: left;
+  }
 }
 
 @media (max-width: 560px) {
@@ -1072,6 +1083,11 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
 @media (max-width: 680px) {
   .alumni-chart-card { flex-direction: column; align-items: center; }
   .ac-chart-wrap { width: min(320px, 86vw); height: min(320px, 86vw); }
+}
+@media (max-width: 560px) {
+  /* Card padding + 320px chart overflows 375px screens — reduce both */
+  .alumni-chart-card { padding: 20px 16px; gap: 20px; }
+  .ac-chart-wrap { width: min(260px, 84vw); height: min(260px, 84vw); }
 }
 
 /* ===== Recruit Poster page ===== */
