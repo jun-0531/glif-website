@@ -1109,7 +1109,7 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
   .activity .dots button.active { background: var(--navy); color: #fff; }
   .carousel-window { box-shadow: none; }
 
-  .acts-card { width: 92%; margin: 28px auto; }
+  .acts-card { width: 92%; margin: 28px auto; background: #f6f7fb; }
   .acts-inner { flex-direction: column; padding: 28px 24px; min-height: 0; }
   .acts-diagram { width: 100%; padding-right: 0; padding-bottom: 24px; border-right: none; border-bottom: 1px solid rgba(23,32,88,.12); align-self: auto; }
   .acts-content { padding-left: 0; padding-top: 24px; }
