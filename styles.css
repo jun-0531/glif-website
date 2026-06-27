@@ -944,6 +944,8 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
 
 /* ===== Mobile ===== */
 @media (max-width: 860px) {
+  /* .site-header creates a stacking context (z-index:50); raising it above about-tabs (99) lets .nav inside clear it */
+  .site-header { z-index: 200; }
   .nav {
     position: fixed; inset: 0 0 0 auto; width: min(78vw, 300px);
     flex-direction: column; justify-content: center; gap: 28px;
