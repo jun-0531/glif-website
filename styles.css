@@ -587,9 +587,9 @@ a    { color: inherit; text-decoration: none; }
 }
 .recruit-text p { font-size: 18px; line-height: 1.9; color: var(--slate); margin-bottom: 36px; }
 .recruit-btn {
-  display: inline-block; padding: 16px 44px;
+  display: inline-block; padding: 12px 28px;
   background: var(--ink); color: #fff;
-  font-family: var(--display); font-size: 15px; font-weight: 700;
+  font-family: var(--display); font-size: 14px; font-weight: 700;
   letter-spacing: .04em; text-decoration: none;
   transition: background .2s;
 }
@@ -636,6 +636,7 @@ a    { color: inherit; text-decoration: none; }
 
 @media (max-width: 860px) {
   .recruit-split { grid-template-columns: 1fr; }
+  .recruit-text { order: -1; }
   .interview-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
@@ -1024,7 +1025,7 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
   .activity .dots button { background: rgba(23,32,88,.18); color: var(--navy); }
   .activity .dots button.active { background: var(--navy); color: #fff; }
 
-  .acts-card { width: 92%; margin: 32px auto; }
+  .acts-card { width: 92%; margin: 36px auto; }
   .acts-inner { flex-direction: column; padding: 28px 24px; min-height: 0; }
   .acts-diagram { width: 100%; padding-right: 0; padding-bottom: 24px; border-right: none; border-bottom: 1px solid rgba(23,32,88,.12); align-self: auto; }
   .acts-content { padding-left: 0; padding-top: 24px; }
@@ -1094,8 +1095,8 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
   .proj-table td:nth-child(4) { white-space: nowrap; }
   .dl-btn { font-size: 13px; padding: 7px 10px; }
 
-  /* Reduce whitespace above "GLIF's Activity Structure" by ~50% */
-  .acts-panel.section { padding-block: 36px 10px; }
+  /* Match Activity Structure section spacing to Activity Overview */
+  .acts-panel.section { padding-block: 10px; }
   .acts-panel-title { padding-top: 0; }
 }
 
@@ -1190,7 +1191,8 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
 
 /* ===== Interview Detail page ===== */
 .id-header {
-  padding: clamp(48px, 7vw, 88px) 0 40px;
+  padding-top: clamp(48px, 7vw, 88px);
+  padding-bottom: 40px;
 }
 .id-type {
   font-size: 12px;
