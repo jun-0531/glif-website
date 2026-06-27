@@ -956,6 +956,8 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
   .nav.open { transform: none; }
   .nav-toggle { display: block; z-index: 201; }
 
+  .carousel-btn { width: 34px; height: 34px; font-size: 18px; background: rgba(255,255,255,.55); border-color: rgba(255,255,255,.25); }
+  .carousel-btn:hover { background: rgba(255,255,255,.7); }
   .carousel-btn.prev { left: 6px; }
   .carousel-btn.next { right: 6px; }
   .ab-activity .carousel-btn.prev { left: 6px; }
