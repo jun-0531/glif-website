@@ -1070,6 +1070,20 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
     font-size: clamp(15px, 1.6vw, 17px);
     text-align: left;
   }
+
+  /* Projects table: hide 학기 column on mobile, 4 cols fit in one row */
+  .proj-table { table-layout: fixed; }
+  .proj-table th:nth-child(3),
+  .proj-table td:nth-child(3) { display: none; }
+  .proj-table th,
+  .proj-table td { font-size: 13px; padding: 12px 6px; }
+  .proj-table .num-cell { font-size: 12px; }
+  .proj-table th:nth-child(1) { width: 30px !important; }
+  .proj-table th:nth-child(2) { width: auto !important; }
+  .proj-table th:nth-child(4) { width: 80px !important; }
+  .proj-table th:nth-child(5) { width: 68px !important; }
+  .proj-table td:nth-child(4) { white-space: nowrap; }
+  .dl-btn { font-size: 12px; padding: 7px 10px; }
 }
 
 @media (max-width: 560px) {
