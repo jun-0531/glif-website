@@ -983,8 +983,8 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
   .site-footer { min-height: 90svh; }
   .footer-inner { padding-top: clamp(48px, 12vh, 88px); padding-bottom: clamp(48px, 12vh, 88px); }
   .footer-logo-img { height: clamp(100px, 22vh, 150px); margin-bottom: 24px; }
-  .footer-nav { flex-wrap: nowrap; gap: 10px; }
-  .footer-nav a { flex: 1; padding: 8px 6px; font-size: 12px; text-align: center; letter-spacing: .02em; white-space: nowrap; }
+  .footer-nav { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .footer-nav a { padding: 8px 6px; font-size: 12px; text-align: center; letter-spacing: .02em; white-space: nowrap; }
 
   /* Alumni: subtle dot pattern + ring accent, toned down so it doesn't compete with content */
   .alumni {
@@ -994,8 +994,9 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
   }
   .alumni::before {
     content: '';
-    width: 380px; height: 380px;
-    right: -120px;
+    width: 260px; height: 260px;
+    top: 50px; right: -90px;
+    transform: none;
     background: radial-gradient(circle at center,
       rgba(23,32,88,.016) 0%,   rgba(23,32,88,.016) 17%,
       transparent 17.5%,         transparent 26%,
@@ -1010,8 +1011,9 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
   .alumni::after { content: none; }
   .alumni-deco { display: block; }
   .alumni-deco::before {
-    width: 300px; height: 300px;
-    left: -100px;
+    width: 260px; height: 260px;
+    top: auto; bottom: 30px; left: -80px;
+    transform: none;
     background: radial-gradient(circle at center,
       rgba(23,32,88,.013) 0%,   rgba(23,32,88,.013) 17%,
       transparent 17.5%,         transparent 26%,
@@ -1057,8 +1059,8 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
   .acts-panel::before {
     content: '';
     position: absolute; border-radius: 50%; pointer-events: none;
-    width: 300px; height: 300px;
-    top: -70px; right: -100px;
+    width: 260px; height: 260px;
+    top: 40px; right: -90px;
     background: radial-gradient(circle at center,
       rgba(23,32,88,.015) 0%,   rgba(23,32,88,.015) 17%,
       transparent 17.5%,         transparent 26%,
@@ -1078,8 +1080,9 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
   .activity::before {
     content: '';
     position: absolute; border-radius: 50%; pointer-events: none;
-    width: 280px; height: 280px;
-    bottom: -60px; left: -90px;
+    width: 260px; height: 260px;
+    top: 50%; left: -80px;
+    transform: translateY(-50%);
     background: radial-gradient(circle at center,
       rgba(23,32,88,.015) 0%,   rgba(23,32,88,.015) 17%,
       transparent 17.5%,         transparent 26%,
