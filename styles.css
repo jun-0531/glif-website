@@ -986,13 +986,55 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
   .footer-nav { flex-wrap: nowrap; gap: 10px; }
   .footer-nav a { flex: 1; padding: 8px 6px; font-size: 12px; text-align: center; letter-spacing: .02em; white-space: nowrap; }
 
-  /* Alumni: solid background = seamless with activity section above, no busy dot/ring decorations */
-  .alumni { background: var(--gray-bg); }
-  .alumni::before, .alumni::after { content: none; }
-  .alumni-deco { display: none; }
+  /* Alumni: match acts-panel bg; restore dot + ring decorations, toned ~15% on mobile */
+  .alumni {
+    background:
+      radial-gradient(circle, rgba(23,32,88,.020) 1px, transparent 1px) 0 0 / 28px 28px,
+      var(--gray-bg);
+  }
+  /* Right ring — scaled to 480px (was 740px), ~15% less opaque */
+  .alumni::before {
+    content: '';
+    width: 480px; height: 480px;
+    right: -130px;
+    background: radial-gradient(circle at center,
+      rgba(23,32,88,.021) 0%,   rgba(23,32,88,.021) 17%,
+      transparent 17.5%,         transparent 26%,
+      rgba(23,32,88,.047) 26.5%, rgba(23,32,88,.047) 27.5%,
+      transparent 28%,           transparent 43%,
+      rgba(23,32,88,.032) 43.5%, rgba(23,32,88,.032) 44.5%,
+      transparent 45%,           transparent 61%,
+      rgba(23,32,88,.021) 61.5%, rgba(23,32,88,.021) 62%,
+      transparent 62.5%,         transparent 79%,
+      rgba(23,32,88,.013) 79.5%, rgba(23,32,88,.013) 80%,
+      transparent 80.5%
+    );
+  }
+  /* Remove small top-right accent circle */
+  .alumni::after { content: none; }
+  /* Left ring — scaled to 380px, ~30% less opaque for lighter asymmetry */
+  .alumni-deco { display: block; }
+  .alumni-deco::before {
+    width: 380px; height: 380px;
+    left: -110px;
+    background: radial-gradient(circle at center,
+      rgba(23,32,88,.017) 0%,   rgba(23,32,88,.017) 17%,
+      transparent 17.5%,         transparent 26%,
+      rgba(23,32,88,.038) 26.5%, rgba(23,32,88,.038) 27.5%,
+      transparent 28%,           transparent 43%,
+      rgba(23,32,88,.026) 43.5%, rgba(23,32,88,.026) 44.5%,
+      transparent 45%,           transparent 61%,
+      rgba(23,32,88,.017) 61.5%, rgba(23,32,88,.017) 62%,
+      transparent 62.5%,         transparent 79%,
+      rgba(23,32,88,.011) 79.5%, rgba(23,32,88,.011) 80%,
+      transparent 80.5%
+    );
+  }
+  /* Remove small bottom-left accent circle */
+  .alumni-deco::after { content: none; }
 
-  /* Alumni: 4-column grid so all logos are visible at a glance */
-  .alumni.section { padding-block: 36px; }
+  /* Alumni: flows directly from activity section above — no visual break */
+  .alumni.section { padding-block: 20px 36px; }
   .alumni .section-title { font-size: clamp(22px, 5vw, 28px); }
   .alumni .section-sub { font-size: 13px; margin-top: 10px; }
   .alumni .section-sub br { display: none; }
@@ -1014,8 +1056,17 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
     object-position: center;
   }
 
-  /* Both panels share the same light background on mobile */
-  .acts-panel { background: var(--gray-bg); }
+  /* All three sections share the same dotted background — one unified area */
+  .acts-panel {
+    background:
+      radial-gradient(circle, rgba(23,32,88,.020) 1px, transparent 1px) 0 0 / 28px 28px,
+      var(--gray-bg);
+  }
+  .activity {
+    background:
+      radial-gradient(circle, rgba(23,32,88,.020) 1px, transparent 1px) 0 0 / 28px 28px,
+      var(--gray-bg);
+  }
   /* Show "GLIF's Activity Overview" above the diagram on mobile */
   .acts-panel-title {
     display: block;
@@ -1024,8 +1075,8 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
     color: var(--ink); text-align: center;
     padding: 28px var(--gut) 0;
   }
-  .activity { background: var(--gray-bg); color: var(--ink); }
-  .activity.section { padding-block: 20px 10px; }
+  .activity { color: var(--ink); }
+  .activity.section { padding-block: 20px 0; }
   .activity .section-title { color: var(--ink); font-size: clamp(18px, 4.5vw, 22px); margin-bottom: 0; }
   .activity .carousel { margin-top: 20px; }
   .activity .dots button { background: rgba(23,32,88,.18); color: var(--navy); }
@@ -1070,7 +1121,11 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
   /* Recruit page: compact spacing, uniform format */
   .recruit-split { padding-block: 24px; gap: 16px; }
   .recruit-text h2 { font-size: 22px; margin-bottom: 10px; }
-  .recruit-text p { font-size: 14px; line-height: 1.7; margin-bottom: 14px; }
+  .recruit-text p { font-size: 18px; line-height: 2; margin-bottom: 14px; }
+
+  /* FAQ: slightly smaller on mobile */
+  .faq-q { font-size: 17px; }
+  .faq-a { font-size: 15px; }
 
   /* Header logo — slightly smaller on mobile */
   .brand img { height: 54px; }
