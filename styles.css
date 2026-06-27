@@ -983,8 +983,13 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
   .site-footer { min-height: 90svh; }
   .footer-inner { padding-top: clamp(48px, 12vh, 88px); padding-bottom: clamp(48px, 12vh, 88px); }
   .footer-logo-img { height: clamp(100px, 22vh, 150px); margin-bottom: 24px; }
-  .footer-nav { flex-wrap: nowrap; gap: 6px; }
-  .footer-nav a { flex: 1; padding: 12px 6px; font-size: 12px; text-align: center; letter-spacing: .02em; white-space: nowrap; }
+  .footer-nav { flex-wrap: nowrap; gap: 10px; }
+  .footer-nav a { flex: 1; padding: 8px 6px; font-size: 12px; text-align: center; letter-spacing: .02em; white-space: nowrap; }
+
+  /* Alumni: solid background = seamless with activity section above, no busy dot/ring decorations */
+  .alumni { background: var(--gray-bg); }
+  .alumni::before, .alumni::after { content: none; }
+  .alumni-deco { display: none; }
 
   /* Alumni: 4-column grid so all logos are visible at a glance */
   .alumni.section { padding-block: 36px; }
