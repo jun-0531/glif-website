@@ -1019,7 +1019,7 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
     padding: 28px var(--gut) 0;
   }
   .activity { background: var(--gray-bg); color: var(--ink); }
-  .activity.section { padding-block: 28px; }
+  .activity.section { padding-block: 18px; }
   .activity .section-title { color: var(--ink); font-size: clamp(18px, 4.5vw, 22px); margin-bottom: 0; }
   .activity .dots button { background: rgba(23,32,88,.18); color: var(--navy); }
   .activity .dots button.active { background: var(--navy); color: #fff; }
@@ -1082,22 +1082,20 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
   .proj-search { margin-bottom: 20px; }
 
   /* Projects table: hide 학기, balanced 4-column layout */
-  .proj-table { table-layout: fixed; }
+  .proj-table { table-layout: auto; }
   .proj-table th:nth-child(3),
   .proj-table td:nth-child(3) { display: none; }
   .proj-table th,
   .proj-table td { font-size: 14px; padding: 12px 6px; }
   .proj-table th { font-size: 13px; }
-  .proj-table .num-cell { font-size: 13px; }
-  .proj-table th:nth-child(1) { width: 40px !important; }
-  .proj-table th:nth-child(2) { width: 155px !important; }
-  .proj-table th:nth-child(4) { width: 80px !important; }
-  .proj-table th:nth-child(5) { width: 75px !important; }
+  .proj-table .num-cell { font-size: 13px; text-align: left !important; }
+  .proj-table th:nth-child(1) { width: 36px !important; }
+  .proj-table td:nth-child(2) { white-space: nowrap; }
   .proj-table td:nth-child(4) { white-space: nowrap; }
   .dl-btn { font-size: 13px; padding: 7px 10px; }
 
   /* Reduce whitespace above "GLIF's Activity Structure" by ~50% */
-  .acts-panel.section { padding-block: 36px; }
+  .acts-panel.section { padding-block: 36px 20px; }
   .acts-panel-title { padding-top: 0; }
 }
 
