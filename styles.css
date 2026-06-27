@@ -1071,19 +1071,33 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
     text-align: left;
   }
 
-  /* Projects table: hide 학기 column on mobile, 4 cols fit in one row */
+  /* Projects page: search section matches table style */
+  .proj-search-label { font-size: 13px; }
+  .proj-search-input { font-size: 14px; padding: 10px 12px; }
+  .proj-search-btn { font-size: 14px; padding: 10px 28px; }
+  .proj-tabs { gap: 8px; margin-bottom: 24px; }
+  .proj-tab { padding: 10px 20px; font-size: 14px; }
+  .proj-title-row { margin-bottom: 20px; }
+  .proj-search { margin-bottom: 20px; }
+
+  /* Projects table: hide 학기, balanced 4-column layout */
   .proj-table { table-layout: fixed; }
   .proj-table th:nth-child(3),
   .proj-table td:nth-child(3) { display: none; }
   .proj-table th,
-  .proj-table td { font-size: 13px; padding: 12px 6px; }
-  .proj-table .num-cell { font-size: 12px; }
-  .proj-table th:nth-child(1) { width: 30px !important; }
-  .proj-table th:nth-child(2) { width: auto !important; }
+  .proj-table td { font-size: 14px; padding: 12px 6px; }
+  .proj-table th { font-size: 13px; }
+  .proj-table .num-cell { font-size: 13px; }
+  .proj-table th:nth-child(1) { width: 40px !important; }
+  .proj-table th:nth-child(2) { width: 155px !important; }
   .proj-table th:nth-child(4) { width: 80px !important; }
-  .proj-table th:nth-child(5) { width: 68px !important; }
+  .proj-table th:nth-child(5) { width: 75px !important; }
   .proj-table td:nth-child(4) { white-space: nowrap; }
-  .dl-btn { font-size: 12px; padding: 7px 10px; }
+  .dl-btn { font-size: 13px; padding: 7px 10px; }
+
+  /* Reduce whitespace above "GLIF's Activity Structure" by ~50% */
+  .acts-panel.section { padding-block-start: 36px; }
+  .acts-panel-title { padding-top: 0; }
 }
 
 @media (max-width: 560px) {
