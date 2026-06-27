@@ -1026,7 +1026,7 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
   .activity .dots button { background: rgba(23,32,88,.18); color: var(--navy); }
   .activity .dots button.active { background: var(--navy); color: #fff; }
 
-  .acts-card { width: 92%; margin: 20px auto; }
+  .acts-card { width: 92%; margin: 28px auto; }
   .acts-inner { flex-direction: column; padding: 28px 24px; min-height: 0; }
   .acts-diagram { width: 100%; padding-right: 0; padding-bottom: 24px; border-right: none; border-bottom: 1px solid rgba(23,32,88,.12); align-self: auto; }
   .acts-content { padding-left: 0; padding-top: 24px; }
@@ -1102,7 +1102,7 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
   .dl-btn { font-size: 13px; padding: 7px 10px; }
 
   /* Match Activity Structure section spacing to Activity Overview */
-  .acts-panel.section { padding-block: 20px 10px; }
+  .acts-panel.section { padding-block: 36px 10px; }
   .acts-panel-title { padding-top: 0; }
 }
 
