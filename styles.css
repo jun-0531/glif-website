@@ -759,7 +759,9 @@ a    { color: inherit; text-decoration: none; }
 
   /* Constrain content to fit one viewport — wrap scrolls internally as a fallback
      instead of silently clipping when content can't shrink enough (e.g. zoomed in) */
-  html:has(.fp) .panel > .wrap { max-height: 100%; overflow-y: auto; }
+  html:has(.fp) .panel > .wrap { max-height: 100%; overflow-y: auto; scrollbar-width: thin; }
+  html:has(.fp) .panel > .wrap::-webkit-scrollbar { width: 6px; }
+  html:has(.fp) .panel > .wrap::-webkit-scrollbar-thumb { background: rgba(0,0,0,.25); border-radius: 3px; }
   html:has(.fp) .alumni .section-title { font-size: clamp(26px, 4.4vh, 66px); }
   html:has(.fp) .alumni .section-sub { margin-top: clamp(8px, 1.6vh, 12px); font-size: clamp(13px, 1.8vh, 18px); }
   html:has(.fp) .alumni-logos-wrap {
@@ -771,7 +773,9 @@ a    { color: inherit; text-decoration: none; }
   }
   html:has(.fp) .alumni-logo { height: clamp(26px, 5vh, 44px); max-width: 190px; }
   html:has(.fp) .activity .section-title { font-size: clamp(18px, min(3.5vw, 4.4vh), 40px); }
-  html:has(.fp) .activity .carousel { max-width: min(680px, 90vw, 80vh); margin-top: clamp(10px, 2vh, 32px); }
+  /* Carousel images are square (1:1) — width cap also caps height, so reserve room
+     for title/dots by capping well under the panel's full vh, not just 80vh */
+  html:has(.fp) .activity .carousel { max-width: min(680px, 90vw, 72vh); margin-top: clamp(10px, 2vh, 32px); }
   html:has(.fp) .activity .dots { margin-top: clamp(8px, 1.4vh, 14px); }
   html:has(.fp) .carousel-btn.prev { left: -58px; }
   html:has(.fp) .carousel-btn.next { right: -58px; }
