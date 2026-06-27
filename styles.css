@@ -1070,7 +1070,11 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
   /* Recruit page: compact spacing, uniform format */
   .recruit-split { padding-block: 24px; gap: 16px; }
   .recruit-text h2 { font-size: 22px; margin-bottom: 10px; }
-  .recruit-text p { font-size: 14px; line-height: 1.7; margin-bottom: 14px; }
+  .recruit-text p { font-size: 18px; line-height: 2; margin-bottom: 14px; }
+
+  /* FAQ: slightly smaller on mobile */
+  .faq-q { font-size: 17px; }
+  .faq-a { font-size: 15px; }
 
   /* Header logo — slightly smaller on mobile */
   .brand img { height: 54px; }
