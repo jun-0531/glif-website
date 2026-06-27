@@ -1060,7 +1060,7 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
     content: '';
     position: absolute; border-radius: 50%; pointer-events: none;
     width: 340px; height: 340px;
-    bottom: 40px; left: -120px;
+    bottom: -60px; left: -130px;
     background: radial-gradient(circle at center,
       rgba(23,32,88,.016) 0%,   rgba(23,32,88,.016) 17%,
       transparent 17.5%,         transparent 26%,
