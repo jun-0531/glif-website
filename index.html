@@ -329,6 +329,17 @@
   mq.addEventListener('change', apply);
   apply();
 
+  /* Mobile parallax: hero background moves at 40% scroll speed */
+  {
+    const heroBg = document.querySelector('.hero-bg');
+    if (heroBg) {
+      window.addEventListener('scroll', () => {
+        if (fpOn) return; // desktop fullpage handles transitions
+        heroBg.style.transform = `translateY(${window.scrollY * 0.4}px)`;
+      }, { passive: true });
+    }
+  }
+
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       const id = a.getAttribute('href').slice(1);

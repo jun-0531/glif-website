@@ -966,6 +966,19 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
   .team-cols-wrap { grid-template-columns: 1fr; gap: 12px; }
   .team-divider-col { display: none; }
 
+  /* Hero: compact proportions to match reference, fix h1 overflow */
+  .hero { min-height: 60svh; }
+  .hero .inner { padding: 36px var(--gut); }
+  .hero h1 { font-size: clamp(22px, 5.5vw, 26px); white-space: normal; letter-spacing: 0; }
+  .hero p { font-size: 14px; margin-top: 12px; text-align: left; max-width: 100%; }
+  .hero p br { display: none; }
+  .hero .btn-hero { margin-top: 20px; padding: 12px 28px; font-size: 14px; }
+  /* Oversized hero-bg so parallax translateY has room without showing gap at top */
+  .hero-bg { top: -25%; bottom: auto; height: 150%; }
+
+  /* Activities panel: light background on mobile so diagram flows naturally after hero */
+  .acts-panel { background: var(--gray-bg); }
+
   .acts-card { width: 92%; margin: 32px auto; }
   .acts-inner { flex-direction: column; padding: 28px 24px; min-height: 0; }
   .acts-diagram { width: 100%; padding-right: 0; padding-bottom: 24px; border-right: none; border-bottom: 1px solid rgba(23,32,88,.12); align-self: auto; }
@@ -1027,10 +1040,7 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
   .member-grid { grid-template-columns: repeat(2, 1fr); }
   .found-grid { grid-template-columns: repeat(2, 1fr); }
 
-  /* Hero heading — allow line breaks (fixes horizontal overflow) */
-  .hero h1 { white-space: normal; }
-
-  /* Hero heading — allow wrapping on very narrow screens */
+  /* (hero h1 white-space: normal is set in the 860px block above) */
 }
 
 /* ===== About Alumni Donut Chart ===== */
