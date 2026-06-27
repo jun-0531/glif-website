@@ -28,7 +28,7 @@
 
 <!-- Hero (같은 스타일, About Us 타이틀) -->
 <div class="about-hero">
-  <img src="assets/campus-header.png" alt="성균관대학교 캠퍼스" />
+  <img src="assets/campus-header.jpg" alt="성균관대학교 캠퍼스" />
   <div class="about-hero-overlay">
     <h1 class="about-hero-title">About Us</h1>
     <p class="about-hero-sub">Global Leader in Finance</p>
@@ -132,7 +132,7 @@
   <section class="section cycle" id="curriculum">
     <div class="wrap">
       <h2 class="section-title">Curriculum Cycle</h2>
-      <p class="section-sub">GLIF 활동은 2학기로 구성되어 있습니다. 1학기는 Following 기수로 참여해 금융 기본기를 다집니다. 또한 IM팀과 운용팀을 선택해 각 팀의 프로젝트를 경험하며 실력을 키웁니다. 2학기는 Leading 기수가 되어 프로젝트를 이끕니다. 방학 중 공식 활동은 없으나, 희망자에 한해 자발적 스터디를 진행합니다.</p>
+      <p class="section-sub">GLIF 활동은 2학기로 구성되어 있습니다. <strong>1학기</strong>는 Following 기수로 참여해 금융 기본기를 다집니다. 또한 IM팀과 운용팀을 선택해 각 팀의 프로젝트를 경험하며 실력을 키웁니다. <strong>2학기</strong>는 Leading 기수가 되어 프로젝트를 이끕니다. <strong>방학 중</strong> 공식 활동은 없으나, 희망자에 한해 자발적 스터디를 진행합니다.</p>
       <div class="curriculum-img-wrap">
         <img src="assets/curriculum.png" alt="GLIF 커리큘럼 사이클" />
       </div>
@@ -169,7 +169,13 @@
 
 <script>
   const navEl = document.getElementById('nav');
-  document.getElementById('navToggle').addEventListener('click', () => navEl.classList.toggle('open'));
+  const navTg = document.getElementById('navToggle');
+  navTg.addEventListener('click', () => navEl.classList.toggle('open'));
+  document.addEventListener('click', e => {
+    if (navEl.classList.contains('open') && !navEl.contains(e.target) && e.target !== navTg) {
+      navEl.classList.remove('open');
+    }
+  });
 
   /* ===== About tabs ===== */
   const aboutTabs   = document.querySelectorAll('.about-tab');
@@ -187,14 +193,14 @@
 
   /* ===== Alumni Donut Chart ===== */
   const ALUMNI_DATA = [
-    { label: '자산운용사/헤지펀드/사모펀드', pct: 24, c: '#5B80C4' },
-    { label: '증권사',           pct: 15, c: '#4A8C68' },
-    { label: '기타',             pct: 13, c: '#7B60B8' },
-    { label: '금융공기업',       pct: 12, c: '#A898D2' },
-    { label: 'IB/VC',           pct: 11, c: '#B86868' },
-    { label: '대기업',           pct:  9, c: '#B88E48' },
-    { label: '회계법인',         pct:  9, c: '#374151' },
-    { label: '은행/보험/카드',   pct:  7, c: '#8E9BAA' },
+    { label: '자산운용사/헤지펀드/사모펀드', pct: 24, c: '#2B4590' },
+    { label: '증권사',           pct: 15, c: '#4A76CC' },
+    { label: '기타',             pct: 13, c: '#358A58' },
+    { label: '금융공기업',       pct: 12, c: '#6B4ABF' },
+    { label: 'IB/VC',           pct: 11, c: '#C04444' },
+    { label: '대기업',           pct:  9, c: '#C08830' },
+    { label: '회계법인',         pct:  9, c: '#1F2937' },
+    { label: '은행/보험/카드',   pct:  7, c: '#6B7280' },
   ];
   const lgdEl = document.getElementById('acLegend');
   ALUMNI_DATA.forEach(d => {

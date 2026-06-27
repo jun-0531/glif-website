@@ -48,7 +48,7 @@
 
     <!-- PANEL 2 · ACTIVITIES -->
     <section class="section acts-panel panel" id="activities">
-      <h2 class="acts-panel-title">GLIF's Activity Overview</h2>
+      <h2 class="acts-panel-title">GLIF's Activity Structure</h2>
       <div class="acts-card">
         <div class="acts-inner">
         <!-- Left: team structure diagram -->
@@ -230,6 +230,11 @@
   const navEl = document.getElementById('nav');
   const tg = document.getElementById('navToggle');
   tg.addEventListener('click', () => navEl.classList.toggle('open'));
+  document.addEventListener('click', e => {
+    if (navEl.classList.contains('open') && !navEl.contains(e.target) && e.target !== tg) {
+      navEl.classList.remove('open');
+    }
+  });
 
   /* ===== Activity carousel ===== */
   const ctrack = document.getElementById('track');
@@ -323,6 +328,17 @@
   window.addEventListener('touchend',   onTouchEnd,    { passive: true });
   mq.addEventListener('change', apply);
   apply();
+
+  /* Mobile parallax: hero background moves at 40% scroll speed */
+  {
+    const heroBg = document.querySelector('.hero-bg');
+    if (heroBg) {
+      window.addEventListener('scroll', () => {
+        if (fpOn) return; // desktop fullpage handles transitions
+        heroBg.style.transform = `translateY(${window.scrollY * 0.4}px)`;
+      }, { passive: true });
+    }
+  }
 
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {

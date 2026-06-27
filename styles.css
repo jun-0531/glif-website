@@ -17,8 +17,8 @@
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { font-family: var(--sans); color: var(--ink); background: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+html { scroll-behavior: smooth; overflow-x: clip; }
+body { font-family: var(--sans); color: var(--ink); background: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: clip; }
 img  { max-width: 100%; display: block; }
 a    { color: inherit; text-decoration: none; }
 .wrap { max-width: var(--maxw); margin: 0 auto; padding-inline: var(--gut); }
@@ -50,14 +50,14 @@ a    { color: inherit; text-decoration: none; }
 .hero .inner { position: relative; z-index: 2; padding: 60px var(--gut); width: 100%; max-width: 1400px; text-align: center; }
 .hero h1 {
   font-family: var(--display); font-weight: 700;
-  font-size: clamp(28px, 4.8vw, 72px); letter-spacing: .01em; line-height: 1.1;
+  font-size: clamp(28px, 4.8vw, 80px); letter-spacing: .01em; line-height: 1.1;
   white-space: nowrap;
   text-shadow: 0 2px 24px rgba(0,0,0,.25);
 }
 .hero p {
   margin: 28px auto 0;
   max-width: 820px;
-  font-size: clamp(15px, 1.7vw, 19px); font-weight: 400;
+  font-size: clamp(15px, 1.7vw, 23px); font-weight: 400;
   color: rgba(255,255,255,.95); line-height: 1.85;
   text-align: center;
   text-shadow: 0 1px 12px rgba(0,0,0,.3);
@@ -386,7 +386,7 @@ a    { color: inherit; text-decoration: none; }
   color: #6b7280; background: none; border: none;
   border-bottom: 2.5px solid transparent; margin-bottom: -1px;
   cursor: pointer; transition: color .18s, border-color .18s;
-  letter-spacing: .01em;
+  letter-spacing: .01em; white-space: nowrap;
 }
 .about-tab:hover { color: #172058; }
 .about-tab.active { color: #172058; border-bottom-color: #172058; }
@@ -503,7 +503,7 @@ a    { color: inherit; text-decoration: none; }
 .mem-gen { display: none; }
 .mem-gen.visible { display: block; }
 .mem-default-splash { margin-top: 40px; }
-.mem-default-splash img { width: 100%; max-height: 500px; object-fit: cover; display: block; border-radius: 4px; }
+.mem-default-splash img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; border-radius: 4px; }
 .gen-heading { font-size: clamp(22px, 3vw, 36px); font-weight: 400; color: var(--ink); margin-bottom: 36px; }
 .member-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 36px 24px; }
 .member-card { display: flex; flex-direction: column; align-items: center; text-align: center; }
@@ -587,9 +587,9 @@ a    { color: inherit; text-decoration: none; }
 }
 .recruit-text p { font-size: 18px; line-height: 1.9; color: var(--slate); margin-bottom: 36px; }
 .recruit-btn {
-  display: inline-block; padding: 16px 44px;
+  display: inline-block; padding: 12px 28px;
   background: var(--ink); color: #fff;
-  font-family: var(--display); font-size: 15px; font-weight: 700;
+  font-family: var(--display); font-size: 14px; font-weight: 700;
   letter-spacing: .04em; text-decoration: none;
   transition: background .2s;
 }
@@ -636,6 +636,7 @@ a    { color: inherit; text-decoration: none; }
 
 @media (max-width: 860px) {
   .recruit-split { grid-template-columns: 1fr; }
+  .recruit-text { order: -1; }
   .interview-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
@@ -756,19 +757,30 @@ a    { color: inherit; text-decoration: none; }
 
   html:has(.fp) .fp-dots { display: flex; }
 
-  /* Constrain content to fit one viewport */
-  html:has(.fp) .alumni .section-title { font-size: clamp(34px, 4.8vw, 66px); }
-  html:has(.fp) .alumni .section-sub { margin-top: 12px; font-size: 18px; }
+  /* Constrain content to fit one viewport — wrap scrolls internally as a fallback
+     instead of silently clipping when content can't shrink enough (e.g. zoomed in) */
+  html:has(.fp) .panel > .wrap { max-height: 100%; overflow-y: auto; scrollbar-width: thin; }
+  html:has(.fp) .panel > .wrap::-webkit-scrollbar { width: 6px; }
+  html:has(.fp) .panel > .wrap::-webkit-scrollbar-thumb { background: rgba(0,0,0,.25); border-radius: 3px; }
+  /* Alumni logo grid: keep the overflow-scroll safety net but hide the visible scrollbar
+     so the entrance animation doesn't show a drag bar next to the logos */
+  html:has(.fp) .alumni > .wrap { scrollbar-width: none; }
+  html:has(.fp) .alumni > .wrap::-webkit-scrollbar { display: none; width: 0; }
+  html:has(.fp) .alumni .section-title { font-size: clamp(26px, 4.4vh, 80px); }
+  html:has(.fp) .alumni .section-sub { margin-top: clamp(8px, 1.6vh, 16px); font-size: clamp(13px, 1.8vh, 26px); }
   html:has(.fp) .alumni-logos-wrap {
-    gap: 14px 32px;
+    gap: clamp(8px, 1.6vh, 22px) clamp(16px, 3vw, 36px);
     padding: 0 20px;
-    max-height: calc(100svh - 60px - 180px);
-    overflow: hidden;
+    margin-top: clamp(10px, 2.4vh, 36px);
+    max-height: none;
+    overflow: visible;
   }
-  html:has(.fp) .alumni-logo { height: 44px; max-width: 190px; }
-  html:has(.fp) .activity .section-title { font-size: clamp(22px, 3.5vw, 40px); }
-  html:has(.fp) .activity .carousel { max-width: min(680px, 90vw); margin-top: clamp(14px, 2.5vh, 32px); }
-  html:has(.fp) .activity .dots { margin-top: 14px; }
+  html:has(.fp) .alumni-logo { height: clamp(26px, 5vh, 64px); max-width: 220px; }
+  html:has(.fp) .activity .section-title { font-size: clamp(18px, min(3.5vw, 4.4vh), 52px); }
+  /* Carousel images are square (1:1) — width cap also caps height, so reserve room
+     for title/dots by capping well under the panel's full vh, not just 80vh */
+  html:has(.fp) .activity .carousel { max-width: min(860px, 90vw, 72vh); margin-top: clamp(10px, 2vh, 32px); }
+  html:has(.fp) .activity .dots { margin-top: clamp(8px, 1.4vh, 18px); }
   html:has(.fp) .carousel-btn.prev { left: -58px; }
   html:has(.fp) .carousel-btn.next { right: -58px; }
   /* Footer panel: override generic .panel centering so contact-strip fills full width */
@@ -786,13 +798,24 @@ a    { color: inherit; text-decoration: none; }
     transform: translateY(-50%);
     text-align: center;
     font-family: var(--display); font-weight: 700;
-    font-size: clamp(22px, 3vw, 38px);
+    font-size: clamp(22px, 3vw, 52px);
     color: #fff; letter-spacing: -.01em;
     text-shadow: 0 2px 14px rgba(0,0,0,.35);
   }
   html:has(.fp) .acts-card { position: absolute; top: 11vh; right: 5vh; bottom: 3vh; left: 5vh; width: auto; height: auto; max-width: none; margin: 0; }
-  html:has(.fp) .acts-inner { height: 100%; align-items: stretch; padding: 28px 44px; }
-  html:has(.fp) .acts-content { overflow-y: hidden; }
+  html:has(.fp) .acts-inner { height: 100%; align-items: stretch; padding: clamp(14px, 3vh, 28px) clamp(20px, 3vw, 44px); }
+  html:has(.fp) .acts-content { overflow-y: auto; justify-content: center; scrollbar-width: none; }
+  html:has(.fp) .acts-content::-webkit-scrollbar { display: none; width: 0; }
+  html:has(.fp) .acts-diagram svg { max-width: min(950px, 65vh, 100%); }
+  /* Scale all activity-card text/spacing with available panel height so nothing gets clipped at short or zoomed-in viewports */
+  html:has(.fp) .acts-section-label { font-size: clamp(10px, 1.6vh, 19px); margin-bottom: clamp(2px, .4vh, 6px); }
+  html:has(.fp) .acts-section-title { font-size: clamp(17px, 3.4vh, 40px); margin-bottom: clamp(2px, .5vh, 8px); }
+  html:has(.fp) .acts-rule { margin-bottom: clamp(4px, 1vh, 14px); }
+  html:has(.fp) .acts-sub-title { font-size: clamp(12px, 2vh, 24px); margin-bottom: clamp(1px, .3vh, 4px); }
+  html:has(.fp) .acts-list { font-size: clamp(11px, 1.8vh, 20px); line-height: 1.35; margin-bottom: clamp(2px, .8vh, 10px); }
+  html:has(.fp) .acts-divider { margin: clamp(4px, 1vh, 14px) 0; }
+  html:has(.fp) .acts-teams { gap: clamp(6px, 1.4vh, 18px); }
+  html:has(.fp) .acts-team-name { font-size: clamp(13px, 2.2vh, 26px); margin-bottom: clamp(2px, .6vh, 8px); }
 
   /* Alumni · entrance animations */
   @keyframes alumniIn {
@@ -944,15 +967,19 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
 
 /* ===== Mobile ===== */
 @media (max-width: 860px) {
+  /* .site-header creates a stacking context (z-index:50); raising it above about-tabs (99) lets .nav inside clear it */
+  .site-header { z-index: 200; }
   .nav {
     position: fixed; inset: 0 0 0 auto; width: min(78vw, 300px);
     flex-direction: column; justify-content: center; gap: 28px;
     background: var(--navy-deep); transform: translateX(100%);
-    transition: transform .3s ease; padding: 40px; z-index: 60;
+    transition: transform .3s ease; padding: 40px; z-index: 200;
   }
   .nav.open { transform: none; }
-  .nav-toggle { display: block; z-index: 61; }
+  .nav-toggle { display: block; z-index: 201; }
 
+  .carousel-btn { width: 34px; height: 34px; font-size: 18px; background: rgba(255,255,255,.55); border-color: rgba(255,255,255,.25); }
+  .carousel-btn:hover { background: rgba(255,255,255,.7); }
   .carousel-btn.prev { left: 6px; }
   .carousel-btn.next { right: 6px; }
   .ab-activity .carousel-btn.prev { left: 6px; }
@@ -966,7 +993,181 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
   .team-cols-wrap { grid-template-columns: 1fr; gap: 12px; }
   .team-divider-col { display: none; }
 
-  .acts-card { width: 92%; margin: 32px auto; }
+  /* Hero: compact proportions to match reference, fix h1 overflow */
+  .hero { min-height: 60svh; }
+  .hero .inner { padding: 36px var(--gut); }
+  .hero h1 { font-size: clamp(22px, 5.5vw, 26px); white-space: normal; letter-spacing: 0; }
+  .hero p { font-size: 12px; margin-top: 10px; text-align: center; max-width: 100%; }
+  .hero p br { display: none; }
+  .hero .btn-hero { margin-top: 16px; padding: 9px 22px; font-size: 12px; }
+  /* Oversized hero-bg so parallax translateY has room without showing gap at top */
+  .hero-bg { top: -25%; bottom: auto; height: 150%; }
+
+  /* Footer: taller photo section fills ~screen height */
+  .site-footer { min-height: 90svh; }
+  .footer-inner { padding-top: clamp(48px, 12vh, 88px); padding-bottom: clamp(48px, 12vh, 88px); }
+  .footer-logo-img { height: clamp(100px, 22vh, 150px); margin-bottom: 24px; }
+  .footer-nav { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .footer-nav a { padding: 8px 6px; font-size: 12px; text-align: center; letter-spacing: .02em; white-space: nowrap; }
+
+  /* Alumni: back to the original draft's big paired rings (vertically centered, bleeding from both edges toward the middle) */
+  .alumni {
+    background:
+      radial-gradient(circle, rgba(23,32,88,.018) 1px, transparent 1px) 0 0 / 28px 28px,
+      var(--gray-bg);
+  }
+  .alumni::before {
+    content: '';
+    width: 420px; height: 420px;
+    top: 50%; right: -130px;
+    transform: translateY(-50%);
+    background: radial-gradient(circle at center,
+      rgba(23,32,88,.020) 0%,   rgba(23,32,88,.020) 17%,
+      transparent 17.5%,         transparent 26%,
+      rgba(23,32,88,.045) 26.5%, rgba(23,32,88,.045) 27.5%,
+      transparent 28%,           transparent 43%,
+      rgba(23,32,88,.031) 43.5%, rgba(23,32,88,.031) 44.5%,
+      transparent 45%,           transparent 61%,
+      rgba(23,32,88,.020) 61.5%, rgba(23,32,88,.020) 62%,
+      transparent 62.5%,         transparent 79%,
+      rgba(23,32,88,.012) 79.5%, rgba(23,32,88,.012) 80%,
+      transparent 80.5%
+    );
+  }
+  .alumni::after { content: none; }
+  .alumni-deco { display: block; }
+  .alumni-deco::before {
+    width: 420px; height: 420px;
+    top: 50%; bottom: auto; left: -130px;
+    transform: translateY(-50%);
+    background: radial-gradient(circle at center,
+      rgba(23,32,88,.020) 0%,   rgba(23,32,88,.020) 17%,
+      transparent 17.5%,         transparent 26%,
+      rgba(23,32,88,.045) 26.5%, rgba(23,32,88,.045) 27.5%,
+      transparent 28%,           transparent 43%,
+      rgba(23,32,88,.031) 43.5%, rgba(23,32,88,.031) 44.5%,
+      transparent 45%,           transparent 61%,
+      rgba(23,32,88,.020) 61.5%, rgba(23,32,88,.020) 62%,
+      transparent 62.5%,         transparent 79%,
+      rgba(23,32,88,.012) 79.5%, rgba(23,32,88,.012) 80%,
+      transparent 80.5%
+    );
+  }
+  .alumni-deco::after { content: none; }
+
+  /* Alumni: flows directly from activity section above — no visual break */
+  .alumni.section { padding-block: 36px 36px; }
+  .alumni .section-title { font-size: clamp(22px, 5vw, 28px); }
+  .alumni .section-sub { font-size: 13px; margin-top: 10px; }
+  .alumni .section-sub br { display: none; }
+  .alumni-logos-wrap {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px 8px;
+    padding: 0;
+    margin-top: 20px;
+    align-items: center;
+    justify-items: center;
+  }
+  .alumni-logo {
+    height: auto !important;
+    max-height: 32px;
+    width: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  /* acts-panel + activity: same subtle dot pattern + ring accents as alumni, kept light */
+  .acts-panel {
+    background:
+      radial-gradient(circle, rgba(23,32,88,.015) 1px, transparent 1px) 0 0 / 28px 28px,
+      radial-gradient(circle at center,
+        rgba(23,32,88,.013) 0%,   rgba(23,32,88,.013) 17%,
+        transparent 17.5%,         transparent 26%,
+        rgba(23,32,88,.028) 26.5%, rgba(23,32,88,.028) 27.5%,
+        transparent 28%,           transparent 43%,
+        rgba(23,32,88,.019) 43.5%, rgba(23,32,88,.019) 44.5%,
+        transparent 45%,           transparent 61%,
+        rgba(23,32,88,.013) 61.5%, rgba(23,32,88,.013) 62%,
+        transparent 62.5%
+      ) no-repeat 78% 50% / 260px 260px,
+      var(--gray-bg);
+  }
+  .acts-panel::before {
+    content: '';
+    position: absolute; border-radius: 50%; pointer-events: none;
+    width: 380px; height: 380px;
+    top: -50px; right: -110px;
+    background: radial-gradient(circle at center,
+      rgba(23,32,88,.017) 0%,   rgba(23,32,88,.017) 14%,
+      transparent 14.5%,         transparent 22%,
+      rgba(23,32,88,.037) 22.5%, rgba(23,32,88,.037) 23.5%,
+      transparent 24%,           transparent 36%,
+      rgba(23,32,88,.026) 36.5%, rgba(23,32,88,.026) 37.5%,
+      transparent 38%,           transparent 51%,
+      rgba(23,32,88,.018) 51.5%, rgba(23,32,88,.018) 52.5%,
+      transparent 53%,           transparent 66%,
+      rgba(23,32,88,.012) 66.5%, rgba(23,32,88,.012) 67%,
+      transparent 67.5%,         transparent 80%,
+      rgba(23,32,88,.008) 80.5%, rgba(23,32,88,.008) 81%,
+      transparent 81.5%
+    );
+  }
+  .acts-panel::after {
+    content: '';
+    position: absolute; border-radius: 50%; pointer-events: none;
+    width: 340px; height: 340px;
+    bottom: 40px; left: -120px;
+    background: radial-gradient(circle at center,
+      rgba(23,32,88,.016) 0%,   rgba(23,32,88,.016) 17%,
+      transparent 17.5%,         transparent 26%,
+      rgba(23,32,88,.034) 26.5%, rgba(23,32,88,.034) 27.5%,
+      transparent 28%,           transparent 43%,
+      rgba(23,32,88,.024) 43.5%, rgba(23,32,88,.024) 44.5%,
+      transparent 45%,           transparent 61%,
+      rgba(23,32,88,.016) 61.5%, rgba(23,32,88,.016) 62%,
+      transparent 62.5%
+    );
+  }
+  .activity {
+    background:
+      radial-gradient(circle, rgba(23,32,88,.015) 1px, transparent 1px) 0 0 / 28px 28px,
+      var(--gray-bg);
+  }
+  .activity::before {
+    content: '';
+    position: absolute; border-radius: 50%; pointer-events: none;
+    width: 260px; height: 260px;
+    top: auto; bottom: 40px; right: -80px; left: auto;
+    background: radial-gradient(circle at center,
+      rgba(23,32,88,.015) 0%,   rgba(23,32,88,.015) 17%,
+      transparent 17.5%,         transparent 26%,
+      rgba(23,32,88,.032) 26.5%, rgba(23,32,88,.032) 27.5%,
+      transparent 28%,           transparent 43%,
+      rgba(23,32,88,.022) 43.5%, rgba(23,32,88,.022) 44.5%,
+      transparent 45%,           transparent 61%,
+      rgba(23,32,88,.015) 61.5%, rgba(23,32,88,.015) 62%,
+      transparent 62.5%
+    );
+  }
+  /* Show "GLIF's Activity Overview" above the diagram on mobile */
+  .acts-panel-title {
+    display: block;
+    font-family: var(--display); font-weight: 700;
+    font-size: clamp(22px, 5vw, 28px);
+    color: var(--ink); text-align: center;
+    padding: 28px var(--gut) 0;
+  }
+  .activity { color: var(--ink); }
+  .activity.section { padding-block: 20px 28px; }
+  .activity .section-title { color: var(--ink); font-size: clamp(22px, 5vw, 28px); margin-bottom: 0; }
+  .activity .carousel { margin-top: 20px; }
+  .activity .dots button { background: rgba(23,32,88,.18); color: var(--navy); }
+  .activity .dots button.active { background: var(--navy); color: #fff; }
+  .carousel-window { box-shadow: none; }
+
+  .acts-card { width: 92%; margin: 28px auto; background: #fafafa; }
   .acts-inner { flex-direction: column; padding: 28px 24px; min-height: 0; }
   .acts-diagram { width: 100%; padding-right: 0; padding-bottom: 24px; border-right: none; border-bottom: 1px solid rgba(23,32,88,.12); align-self: auto; }
   .acts-content { padding-left: 0; padding-top: 24px; }
@@ -983,11 +1184,79 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
   .cyc-half { display: none; }
 
   .member-grid { grid-template-columns: repeat(3, 1fr); gap: 24px 16px; }
+
+  /* CRITICAL: hide desktop-only shared background — it renders as a visible
+     full-width image between sections when fullpage scroll is off */
+  .acts-activity-bg-wrap { display: none; }
+
+/* Interview section: match recruit section format */
+  .interview-section { padding-block: 24px; }
+  .interview-header { flex-direction: column; gap: 10px; margin-bottom: 16px; }
+  .interview-header h2 { font-size: 22px; }
+  .interview-header p { font-size: 14px; line-height: 1.7; margin-top: 6px; }
+  .view-all-btn { margin-left: 0; }
+
+  /* Tab bars — equal-width tabs that fill the viewport, no horizontal scroll */
+  .about-tabs-inner { padding-inline: 0; }
+  .about-tab { flex: 1; text-align: center; padding: 16px 8px; font-size: 14px; overflow: hidden; text-overflow: ellipsis; }
+
+  /* Activities card title — reduce oversized font */
+  .acts-section-title { font-size: 24px; }
+
+  /* Recruit page: compact spacing, uniform format */
+  .recruit-split { padding-block: 24px; gap: 16px; }
+  .recruit-text h2 { font-size: 22px; margin-bottom: 10px; }
+  .recruit-text p { font-size: 14px; line-height: 1.7; margin-bottom: 14px; }
+  .rp-text { font-size: 14px; line-height: 1.7; }
+
+  /* FAQ: slightly smaller on mobile */
+  .faq-q { font-size: 17px; }
+  .faq-a { font-size: 15px; }
+
+  /* Header logo — slightly smaller on mobile */
+  .brand img { height: 54px; }
+
+  /* About page: reduce overly large intro/sub text on mobile */
+  .intro-body > p:first-child { font-size: clamp(16px, 2vw, 19px); text-align: left; }
+  .intro-body p { font-size: clamp(15px, 1.6vw, 17px); }
+  .about-page .cycle .section-sub,
+  .about-page .about-alumni-section .section-sub {
+    font-size: clamp(15px, 1.6vw, 17px);
+    text-align: left;
+  }
+
+  /* Projects page: search section matches table style */
+  .proj-search-label { font-size: 13px; }
+  .proj-search-input { font-size: 14px; padding: 10px 12px; }
+  .proj-search-btn { font-size: 14px; padding: 10px 28px; }
+  .proj-tabs { gap: 8px; margin-bottom: 24px; }
+  .proj-tab { padding: 10px 20px; font-size: 14px; }
+  .proj-title-row { margin-bottom: 20px; }
+  .proj-search { margin-bottom: 20px; }
+
+  /* Projects table: hide 학기, balanced 4-column layout */
+  .proj-table { table-layout: auto; }
+  .proj-table th:nth-child(3),
+  .proj-table td:nth-child(3) { display: none; }
+  .proj-table th,
+  .proj-table td { font-size: 14px; padding: 12px 6px; }
+  .proj-table th { font-size: 13px; }
+  .proj-table .num-cell { font-size: 13px; text-align: left !important; white-space: nowrap; }
+  .proj-table th:nth-child(1) { width: auto !important; white-space: nowrap; }
+  .proj-table td:nth-child(2) { white-space: nowrap; }
+  .proj-table td:nth-child(4) { white-space: nowrap; }
+  .dl-btn { font-size: 13px; padding: 7px 10px; }
+
+  /* Match Activity Structure section spacing to Activity Overview */
+  .acts-panel.section { padding-block: 36px 10px; }
+  .acts-panel-title { padding-top: 0; }
 }
 
 @media (max-width: 560px) {
   .member-grid { grid-template-columns: repeat(2, 1fr); }
   .found-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* (hero h1 white-space: normal is set in the 860px block above) */
 }
 
 /* ===== About Alumni Donut Chart ===== */
@@ -1034,6 +1303,11 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
   .alumni-chart-card { flex-direction: column; align-items: center; }
   .ac-chart-wrap { width: min(320px, 86vw); height: min(320px, 86vw); }
 }
+@media (max-width: 560px) {
+  /* Card padding + 320px chart overflows 375px screens — reduce both */
+  .alumni-chart-card { padding: 20px 16px; gap: 20px; }
+  .ac-chart-wrap { width: min(260px, 84vw); height: min(260px, 84vw); }
+}
 
 /* ===== Recruit Poster page ===== */
 .rp-poster-wrap {
@@ -1069,7 +1343,8 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
 
 /* ===== Interview Detail page ===== */
 .id-header {
-  padding: clamp(48px, 7vw, 88px) 0 40px;
+  padding-top: clamp(48px, 7vw, 88px);
+  padding-bottom: 40px;
 }
 .id-type {
   font-size: 12px;
