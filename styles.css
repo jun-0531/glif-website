@@ -1042,15 +1042,7 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
      full-width image between sections when fullpage scroll is off */
   .acts-activity-bg-wrap { display: none; }
 
-  /* Translucent backdrop when mobile nav is open */
-  body:has(.nav.open)::before {
-    content: '';
-    position: fixed; inset: 0;
-    background: rgba(0,0,0,0.45);
-    z-index: 59;
-  }
-
-  /* Interview header — stack vertically on mobile */
+/* Interview header — stack vertically on mobile */
   .interview-header { flex-direction: column; gap: 12px; }
   .view-all-btn { margin-left: 0; }
 
