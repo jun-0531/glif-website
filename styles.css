@@ -1026,7 +1026,7 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
   .activity .dots button { background: rgba(23,32,88,.18); color: var(--navy); }
   .activity .dots button.active { background: var(--navy); color: #fff; }
 
-  .acts-card { width: 92%; margin: 36px auto; }
+  .acts-card { width: 92%; margin: 20px auto; }
   .acts-inner { flex-direction: column; padding: 28px 24px; min-height: 0; }
   .acts-diagram { width: 100%; padding-right: 0; padding-bottom: 24px; border-right: none; border-bottom: 1px solid rgba(23,32,88,.12); align-self: auto; }
   .acts-content { padding-left: 0; padding-top: 24px; }
@@ -1048,8 +1048,11 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
      full-width image between sections when fullpage scroll is off */
   .acts-activity-bg-wrap { display: none; }
 
-/* Interview header — stack vertically on mobile */
-  .interview-header { flex-direction: column; gap: 12px; }
+/* Interview section: match recruit section format */
+  .interview-section { padding-block: 24px; }
+  .interview-header { flex-direction: column; gap: 10px; margin-bottom: 16px; }
+  .interview-header h2 { font-size: 22px; }
+  .interview-header p { font-size: 14px; line-height: 1.7; margin-top: 6px; }
   .view-all-btn { margin-left: 0; }
 
   /* Tab bars — equal-width tabs that fill the viewport, no horizontal scroll */
@@ -1059,8 +1062,10 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
   /* Activities card title — reduce oversized font */
   .acts-section-title { font-size: 24px; }
 
-  /* Recruit page description text */
-  .recruit-text p { font-size: 16px; }
+  /* Recruit page: compact spacing, uniform format */
+  .recruit-split { padding-block: 24px; gap: 16px; }
+  .recruit-text h2 { font-size: 22px; margin-bottom: 10px; }
+  .recruit-text p { font-size: 14px; line-height: 1.7; margin-bottom: 14px; }
 
   /* Header logo — slightly smaller on mobile */
   .brand img { height: 54px; }
@@ -1090,14 +1095,14 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
   .proj-table th,
   .proj-table td { font-size: 14px; padding: 12px 6px; }
   .proj-table th { font-size: 13px; }
-  .proj-table .num-cell { font-size: 13px; text-align: left !important; }
-  .proj-table th:nth-child(1) { width: 36px !important; }
+  .proj-table .num-cell { font-size: 13px; text-align: left !important; white-space: nowrap; }
+  .proj-table th:nth-child(1) { width: auto !important; white-space: nowrap; }
   .proj-table td:nth-child(2) { white-space: nowrap; }
   .proj-table td:nth-child(4) { white-space: nowrap; }
   .dl-btn { font-size: 13px; padding: 7px 10px; }
 
   /* Match Activity Structure section spacing to Activity Overview */
-  .acts-panel.section { padding-block: 10px; }
+  .acts-panel.section { padding-block: 20px 10px; }
   .acts-panel-title { padding-top: 0; }
 }
 
