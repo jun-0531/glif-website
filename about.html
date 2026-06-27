@@ -169,7 +169,13 @@
 
 <script>
   const navEl = document.getElementById('nav');
-  document.getElementById('navToggle').addEventListener('click', () => navEl.classList.toggle('open'));
+  const navTg = document.getElementById('navToggle');
+  navTg.addEventListener('click', () => navEl.classList.toggle('open'));
+  document.addEventListener('click', e => {
+    if (navEl.classList.contains('open') && !navEl.contains(e.target) && e.target !== navTg) {
+      navEl.classList.remove('open');
+    }
+  });
 
   /* ===== About tabs ===== */
   const aboutTabs   = document.querySelectorAll('.about-tab');

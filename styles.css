@@ -17,8 +17,8 @@
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { font-family: var(--sans); color: var(--ink); background: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+html { scroll-behavior: smooth; overflow-x: clip; }
+body { font-family: var(--sans); color: var(--ink); background: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: clip; }
 img  { max-width: 100%; display: block; }
 a    { color: inherit; text-decoration: none; }
 .wrap { max-width: var(--maxw); margin: 0 auto; padding-inline: var(--gut); }
@@ -386,7 +386,7 @@ a    { color: inherit; text-decoration: none; }
   color: #6b7280; background: none; border: none;
   border-bottom: 2.5px solid transparent; margin-bottom: -1px;
   cursor: pointer; transition: color .18s, border-color .18s;
-  letter-spacing: .01em;
+  letter-spacing: .01em; white-space: nowrap;
 }
 .about-tab:hover { color: #172058; }
 .about-tab.active { color: #172058; border-bottom-color: #172058; }
@@ -983,11 +983,54 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
   .cyc-half { display: none; }
 
   .member-grid { grid-template-columns: repeat(3, 1fr); gap: 24px 16px; }
+
+  /* CRITICAL: hide desktop-only shared background — it renders as a visible
+     full-width image between sections when fullpage scroll is off */
+  .acts-activity-bg-wrap { display: none; }
+
+  /* Translucent backdrop when mobile nav is open */
+  body:has(.nav.open)::before {
+    content: '';
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 59;
+  }
+
+  /* Interview header — stack vertically on mobile */
+  .interview-header { flex-direction: column; gap: 12px; }
+  .view-all-btn { margin-left: 0; }
+
+  /* Tab bars — equal-width tabs that fill the viewport, no horizontal scroll */
+  .about-tabs-inner { padding-inline: 0; }
+  .about-tab { flex: 1; text-align: center; padding: 16px 8px; font-size: 14px; overflow: hidden; text-overflow: ellipsis; }
+
+  /* Activities card title — reduce oversized font */
+  .acts-section-title { font-size: 24px; }
+
+  /* Recruit page description text */
+  .recruit-text p { font-size: 16px; }
+
+  /* Header logo — slightly smaller on mobile */
+  .brand img { height: 54px; }
+
+  /* About page: reduce overly large intro/sub text on mobile */
+  .intro-body > p:first-child { font-size: clamp(16px, 2vw, 19px); text-align: left; }
+  .intro-body p { font-size: clamp(15px, 1.6vw, 17px); }
+  .about-page .cycle .section-sub,
+  .about-page .about-alumni-section .section-sub {
+    font-size: clamp(15px, 1.6vw, 17px);
+    text-align: left;
+  }
 }
 
 @media (max-width: 560px) {
   .member-grid { grid-template-columns: repeat(2, 1fr); }
   .found-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* Hero heading — allow line breaks (fixes horizontal overflow) */
+  .hero h1 { white-space: normal; }
+
+  /* Hero heading — allow wrapping on very narrow screens */
 }
 
 /* ===== About Alumni Donut Chart ===== */
@@ -1033,6 +1076,11 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
 @media (max-width: 680px) {
   .alumni-chart-card { flex-direction: column; align-items: center; }
   .ac-chart-wrap { width: min(320px, 86vw); height: min(320px, 86vw); }
+}
+@media (max-width: 560px) {
+  /* Card padding + 320px chart overflows 375px screens — reduce both */
+  .alumni-chart-card { padding: 20px 16px; gap: 20px; }
+  .ac-chart-wrap { width: min(260px, 84vw); height: min(260px, 84vw); }
 }
 
 /* ===== Recruit Poster page ===== */
