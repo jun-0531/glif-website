@@ -996,34 +996,42 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
   }
   .alumni::before {
     content: '';
-    width: 260px; height: 260px;
+    width: 280px; height: 280px;
     top: 50px; right: -90px;
+    transform: none;
+    background: radial-gradient(circle at center,
+      rgba(23,32,88,.019) 0%,   rgba(23,32,88,.019) 17%,
+      transparent 17.5%,         transparent 26%,
+      rgba(23,32,88,.042) 26.5%, rgba(23,32,88,.042) 27.5%,
+      transparent 28%,           transparent 43%,
+      rgba(23,32,88,.029) 43.5%, rgba(23,32,88,.029) 44.5%,
+      transparent 45%,           transparent 61%,
+      rgba(23,32,88,.019) 61.5%, rgba(23,32,88,.019) 62%,
+      transparent 62.5%
+    );
+  }
+  /* Small floating accent ring, kept well inside the section so it never bleeds above into activity */
+  .alumni::after {
+    content: '';
+    position: absolute; border-radius: 50%; pointer-events: none;
+    width: 90px; height: 90px;
+    top: 220px; right: 36px;
+    border: 1px solid rgba(23,32,88,.05);
+    box-shadow: 0 0 0 10px rgba(23,32,88,.012), 0 0 0 20px rgba(23,32,88,.007);
+  }
+  .alumni-deco { display: block; }
+  .alumni-deco::before {
+    width: 280px; height: 280px;
+    top: auto; bottom: 30px; left: -80px;
     transform: none;
     background: radial-gradient(circle at center,
       rgba(23,32,88,.016) 0%,   rgba(23,32,88,.016) 17%,
       transparent 17.5%,         transparent 26%,
       rgba(23,32,88,.036) 26.5%, rgba(23,32,88,.036) 27.5%,
       transparent 28%,           transparent 43%,
-      rgba(23,32,88,.025) 43.5%, rgba(23,32,88,.025) 44.5%,
+      rgba(23,32,88,.024) 43.5%, rgba(23,32,88,.024) 44.5%,
       transparent 45%,           transparent 61%,
       rgba(23,32,88,.016) 61.5%, rgba(23,32,88,.016) 62%,
-      transparent 62.5%
-    );
-  }
-  .alumni::after { content: none; }
-  .alumni-deco { display: block; }
-  .alumni-deco::before {
-    width: 260px; height: 260px;
-    top: auto; bottom: 30px; left: -80px;
-    transform: none;
-    background: radial-gradient(circle at center,
-      rgba(23,32,88,.013) 0%,   rgba(23,32,88,.013) 17%,
-      transparent 17.5%,         transparent 26%,
-      rgba(23,32,88,.030) 26.5%, rgba(23,32,88,.030) 27.5%,
-      transparent 28%,           transparent 43%,
-      rgba(23,32,88,.020) 43.5%, rgba(23,32,88,.020) 44.5%,
-      transparent 45%,           transparent 61%,
-      rgba(23,32,88,.013) 61.5%, rgba(23,32,88,.013) 62%,
       transparent 62.5%
     );
   }
@@ -1056,21 +1064,47 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
   .acts-panel {
     background:
       radial-gradient(circle, rgba(23,32,88,.015) 1px, transparent 1px) 0 0 / 28px 28px,
+      radial-gradient(circle at center,
+        rgba(23,32,88,.013) 0%,   rgba(23,32,88,.013) 17%,
+        transparent 17.5%,         transparent 26%,
+        rgba(23,32,88,.028) 26.5%, rgba(23,32,88,.028) 27.5%,
+        transparent 28%,           transparent 43%,
+        rgba(23,32,88,.019) 43.5%, rgba(23,32,88,.019) 44.5%,
+        transparent 45%,           transparent 61%,
+        rgba(23,32,88,.013) 61.5%, rgba(23,32,88,.013) 62%,
+        transparent 62.5%
+      ) no-repeat 78% 50% / 260px 260px,
       var(--gray-bg);
   }
   .acts-panel::before {
     content: '';
     position: absolute; border-radius: 50%; pointer-events: none;
-    width: 260px; height: 260px;
-    top: 40px; right: -90px;
+    width: 340px; height: 340px;
+    top: 20px; right: -110px;
     background: radial-gradient(circle at center,
-      rgba(23,32,88,.015) 0%,   rgba(23,32,88,.015) 17%,
+      rgba(23,32,88,.016) 0%,   rgba(23,32,88,.016) 17%,
       transparent 17.5%,         transparent 26%,
-      rgba(23,32,88,.032) 26.5%, rgba(23,32,88,.032) 27.5%,
+      rgba(23,32,88,.034) 26.5%, rgba(23,32,88,.034) 27.5%,
       transparent 28%,           transparent 43%,
-      rgba(23,32,88,.022) 43.5%, rgba(23,32,88,.022) 44.5%,
+      rgba(23,32,88,.024) 43.5%, rgba(23,32,88,.024) 44.5%,
       transparent 45%,           transparent 61%,
-      rgba(23,32,88,.015) 61.5%, rgba(23,32,88,.015) 62%,
+      rgba(23,32,88,.016) 61.5%, rgba(23,32,88,.016) 62%,
+      transparent 62.5%
+    );
+  }
+  .acts-panel::after {
+    content: '';
+    position: absolute; border-radius: 50%; pointer-events: none;
+    width: 340px; height: 340px;
+    bottom: 40px; left: -120px;
+    background: radial-gradient(circle at center,
+      rgba(23,32,88,.016) 0%,   rgba(23,32,88,.016) 17%,
+      transparent 17.5%,         transparent 26%,
+      rgba(23,32,88,.034) 26.5%, rgba(23,32,88,.034) 27.5%,
+      transparent 28%,           transparent 43%,
+      rgba(23,32,88,.024) 43.5%, rgba(23,32,88,.024) 44.5%,
+      transparent 45%,           transparent 61%,
+      rgba(23,32,88,.016) 61.5%, rgba(23,32,88,.016) 62%,
       transparent 62.5%
     );
   }
