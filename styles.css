@@ -994,8 +994,44 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
       radial-gradient(circle, rgba(23,32,88,.018) 1px, transparent 1px) 0 0 / 28px 28px,
       var(--gray-bg);
   }
-  .alumni::before { content: none; }
-  .alumni-deco { display: none; }
+  .alumni::before {
+    content: '';
+    width: 420px; height: 420px;
+    top: 50%; right: -130px;
+    transform: translateY(-50%);
+    background: radial-gradient(circle at center,
+      rgba(23,32,88,.020) 0%,   rgba(23,32,88,.020) 17%,
+      transparent 17.5%,         transparent 26%,
+      rgba(23,32,88,.045) 26.5%, rgba(23,32,88,.045) 27.5%,
+      transparent 28%,           transparent 43%,
+      rgba(23,32,88,.031) 43.5%, rgba(23,32,88,.031) 44.5%,
+      transparent 45%,           transparent 61%,
+      rgba(23,32,88,.020) 61.5%, rgba(23,32,88,.020) 62%,
+      transparent 62.5%,         transparent 79%,
+      rgba(23,32,88,.012) 79.5%, rgba(23,32,88,.012) 80%,
+      transparent 80.5%
+    );
+  }
+  .alumni::after { content: none; }
+  .alumni-deco { display: block; }
+  .alumni-deco::before {
+    width: 420px; height: 420px;
+    top: 50%; bottom: auto; left: -130px;
+    transform: translateY(-50%);
+    background: radial-gradient(circle at center,
+      rgba(23,32,88,.020) 0%,   rgba(23,32,88,.020) 17%,
+      transparent 17.5%,         transparent 26%,
+      rgba(23,32,88,.045) 26.5%, rgba(23,32,88,.045) 27.5%,
+      transparent 28%,           transparent 43%,
+      rgba(23,32,88,.031) 43.5%, rgba(23,32,88,.031) 44.5%,
+      transparent 45%,           transparent 61%,
+      rgba(23,32,88,.020) 61.5%, rgba(23,32,88,.020) 62%,
+      transparent 62.5%,         transparent 79%,
+      rgba(23,32,88,.012) 79.5%, rgba(23,32,88,.012) 80%,
+      transparent 80.5%
+    );
+  }
+  .alumni-deco::after { content: none; }
 
   /* Alumni: flows directly from activity section above — no visual break */
   .alumni.section { padding-block: 36px 36px; }
@@ -1109,7 +1145,7 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
   .activity .dots button.active { background: var(--navy); color: #fff; }
   .carousel-window { box-shadow: none; }
 
-  .acts-card { width: 92%; margin: 28px auto; background: #f6f7fb; }
+  .acts-card { width: 92%; margin: 28px auto; background: #fafafa; }
   .acts-inner { flex-direction: column; padding: 28px 24px; min-height: 0; }
   .acts-diagram { width: 100%; padding-right: 0; padding-bottom: 24px; border-right: none; border-bottom: 1px solid rgba(23,32,88,.12); align-self: auto; }
   .acts-content { padding-left: 0; padding-top: 24px; }
