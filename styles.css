@@ -977,9 +977,10 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
   .hero-bg { top: -25%; bottom: auto; height: 150%; }
 
   /* Footer nav: single row on mobile */
-  .footer-logo-img { height: clamp(70px, 15vh, 110px); margin-bottom: 16px; }
+  .footer-inner { padding-top: clamp(40px, 10vh, 72px); padding-bottom: clamp(36px, 8vh, 60px); }
+  .footer-logo-img { height: clamp(80px, 18vh, 120px); margin-bottom: 20px; }
   .footer-nav { flex-wrap: nowrap; gap: 6px; }
-  .footer-nav a { flex: 1; padding: 12px 4px; font-size: 12px; text-align: center; letter-spacing: .02em; }
+  .footer-nav a { flex: 1; padding: 12px 6px; font-size: 12px; text-align: center; letter-spacing: .02em; white-space: nowrap; }
 
   /* Alumni: 4-column grid so all logos are visible at a glance */
   .alumni.section { padding-block: 36px; }
