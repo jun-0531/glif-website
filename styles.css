@@ -976,8 +976,13 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
   /* Oversized hero-bg so parallax translateY has room without showing gap at top */
   .hero-bg { top: -25%; bottom: auto; height: 150%; }
 
-  /* Activities panel: light background on mobile so diagram flows naturally after hero */
+  /* Both panels share the same light background on mobile */
   .acts-panel { background: var(--gray-bg); }
+  .activity { background: var(--gray-bg); color: var(--ink); }
+  .activity.section { padding-top: 28px; }
+  .activity .section-title { color: var(--ink); font-size: clamp(18px, 4.5vw, 22px); margin-bottom: 0; }
+  .activity .dots button { background: rgba(23,32,88,.18); color: var(--navy); }
+  .activity .dots button.active { background: var(--navy); color: #fff; }
 
   .acts-card { width: 92%; margin: 32px auto; }
   .acts-inner { flex-direction: column; padding: 28px 24px; min-height: 0; }
