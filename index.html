@@ -63,12 +63,15 @@
         <div class="acts-diagram">
           <svg viewBox="0 0 320 305" xmlns="http://www.w3.org/2000/svg">
             <defs>
-              <marker id="gaf" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-                <polygon points="0 0,10 3.5,0 7" fill="#172058"/>
-              </marker>
-              <marker id="gab" markerWidth="10" markerHeight="7" refX="1" refY="3.5" orient="auto">
-                <polygon points="10 0,0 3.5,10 7" fill="#172058"/>
-              </marker>
+              <linearGradient id="arrowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#46569e"/>
+                <stop offset="100%" stop-color="#0a1030"/>
+              </linearGradient>
+              <linearGradient id="arrowGradMid" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#0a1030"/>
+                <stop offset="50%" stop-color="#4f60aa"/>
+                <stop offset="100%" stop-color="#0a1030"/>
+              </linearGradient>
               <linearGradient id="circGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stop-color="#f3f5fb"/>
                 <stop offset="100%" stop-color="#dbe0f3"/>
@@ -77,11 +80,12 @@
                 <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#172058" flood-opacity="0.12"/>
               </filter>
             </defs>
-            <g stroke-linecap="round">
-              <line x1="133" y1="114" x2="97" y2="178" stroke="#172058" stroke-width="2" marker-end="url(#gaf)"/>
-              <line x1="187" y1="114" x2="223" y2="178" stroke="#172058" stroke-width="2" marker-end="url(#gaf)"/>
-              <line x1="125" y1="224" x2="195" y2="224" stroke="#172058" stroke-width="2" marker-start="url(#gab)" marker-end="url(#gaf)"/>
-            </g>
+            <path d="M0,-2.3 L58.43,-2.3 L58.43,-7.5 L73.43,0 L58.43,7.5 L58.43,2.3 L0,2.3 Z"
+                  fill="url(#arrowGrad)" transform="translate(133,114) rotate(119.358)"/>
+            <path d="M0,-2.3 L58.43,-2.3 L58.43,-7.5 L73.43,0 L58.43,7.5 L58.43,2.3 L0,2.3 Z"
+                  fill="url(#arrowGrad)" transform="translate(187,114) rotate(60.642)"/>
+            <path d="M0,0 L14,-7 L14,-2.3 L56,-2.3 L56,-7 L70,0 L56,7 L56,2.3 L14,2.3 L14,7 Z"
+                  fill="url(#arrowGradMid)" transform="translate(125,224)"/>
             <g filter="url(#circShadow)">
               <circle cx="160" cy="68" r="47" fill="url(#circGrad)" stroke="#c3cbe8" stroke-width="1"/>
             </g>
