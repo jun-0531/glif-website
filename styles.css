@@ -1234,8 +1234,7 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
     text-align: left;
   }
 
-  /* Daily / Projects / Career detail text — match Introduction body text on mobile */
-  .act-col { text-align: left; }
+  /* Daily / Projects / Career detail text */
   .act-item h4 { font-size: clamp(15px, 1.6vw, 17px); }
   .act-item p { font-size: clamp(15px, 1.6vw, 17px); line-height: 1.85; }
 
