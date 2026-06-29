@@ -1095,8 +1095,8 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
     object-fit: contain;
     object-position: center;
   }
-  /* HSBC through MUFG row group — bump up a bit */
-  .alumni-logo:nth-child(n+10):nth-child(-n+17) { height: 38px !important; max-width: 140px; }
+  /* BoA through MUFG row group — bump up */
+  .alumni-logo:nth-child(-n+17) { height: 38px !important; max-width: 140px; }
   /* Societe Generale onward — scale back down */
   .alumni-logo:nth-child(n+18) { height: 24px !important; max-width: 100px; }
 
