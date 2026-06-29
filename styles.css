@@ -777,6 +777,16 @@ a    { color: inherit; text-decoration: none; }
     overflow: visible;
   }
   html:has(.fp) .alumni-logo { height: clamp(26px, 5vh, 64px); max-width: 165px; }
+  /* First row (BoA, Goldman, Deutsche, McKinsey, IMM, BNP, Highland, pwc) — wide
+     wordmarks that hit the max-width cap and render shorter than the target height */
+  html:has(.fp) .alumni-logo[src*="logo_03"],
+  html:has(.fp) .alumni-logo[src*="logo_04"],
+  html:has(.fp) .alumni-logo[src*="logo_05"],
+  html:has(.fp) .alumni-logo[src*="logo_06"],
+  html:has(.fp) .alumni-logo[src*="logo_07"],
+  html:has(.fp) .alumni-logo[src*="logo_08"],
+  html:has(.fp) .alumni-logo[src*="logo_09"],
+  html:has(.fp) .alumni-logo[src*="logo_10"] { max-width: 200px; }
   html:has(.fp) .activity .section-title { font-size: clamp(18px, min(3.5vw, 4.4vh), 52px); }
   /* Carousel images are square (1:1) — width cap also caps height, so reserve room
      for title/dots by capping well under the panel's full vh, not just 80vh */
