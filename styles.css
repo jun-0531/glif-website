@@ -776,7 +776,7 @@ a    { color: inherit; text-decoration: none; }
     max-height: none;
     overflow: visible;
   }
-  html:has(.fp) .alumni-logo { height: clamp(26px, 5vh, 64px); max-width: 220px; }
+  html:has(.fp) .alumni-logo { height: clamp(26px, 5vh, 64px); max-width: 165px; }
   html:has(.fp) .activity .section-title { font-size: clamp(18px, min(3.5vw, 4.4vh), 52px); }
   /* Carousel images are square (1:1) — width cap also caps height, so reserve room
      for title/dots by capping well under the panel's full vh, not just 80vh */
