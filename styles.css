@@ -1095,10 +1095,10 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
     object-fit: contain;
     object-position: center;
   }
-  /* BoA through MUFG row group — bump up */
-  .alumni-logo:nth-child(-n+17) { height: 38px !important; max-width: 140px; }
-  /* Societe Generale onward — scale back down */
-  .alumni-logo:nth-child(n+18) { height: 24px !important; max-width: 100px; }
+  /* BoA through KB Securities row group — bump up */
+  .alumni-logo:nth-child(-n+9) { height: 38px !important; max-width: 140px; }
+  /* HSBC through MUFG — scale down */
+  .alumni-logo:nth-child(n+10):nth-child(-n+17) { height: 24px !important; max-width: 100px; }
 
   /* acts-panel + activity: same subtle dot pattern + ring accents as alumni, kept light */
   .acts-panel {
