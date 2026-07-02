@@ -161,30 +161,20 @@ a    { color: inherit; text-decoration: none; }
 /* Alumni individual logo cloud */
 .alumni-logos-wrap {
   display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding: 4px 24px;
-  margin-top: clamp(16px, 3vh, 36px);
-}
-.alumni-row {
-  display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 0 36px;
-}
-.alumni-row .alumni-logo {
-  flex: 1;
-  min-width: 0;
-  max-width: 180px;
+  gap: 18px 36px;
+  padding: 4px 24px;
+  margin-top: clamp(16px, 3vh, 36px);
 }
 .alumni-logo {
   height: 34px;
   width: auto;
+  max-width: 180px;
   object-fit: contain;
-  display: block;
-  margin: 0 auto;
+  flex: 0 0 auto;
 }
-.alumni-row-1 .alumni-logo { height: 41px; } /* +20% */
 
 /* ===== Activity Overview ===== */
 .activity {
@@ -780,15 +770,13 @@ a    { color: inherit; text-decoration: none; }
   html:has(.fp) .alumni .section-title { font-size: clamp(26px, 4.4vh, 80px); }
   html:has(.fp) .alumni .section-sub { margin-top: clamp(8px, 1.6vh, 16px); font-size: clamp(15px, 2.3vh, 26px); }
   html:has(.fp) .alumni-logos-wrap {
-    gap: clamp(16px, 3vh, 40px);
+    gap: clamp(8px, 1.6vh, 22px) clamp(16px, 3vw, 36px);
     padding: 0 20px;
     margin-top: clamp(10px, 2.4vh, 36px);
     max-height: none;
     overflow: visible;
   }
-  html:has(.fp) .alumni-row { gap: 0 clamp(16px, 3vw, 36px); }
-  html:has(.fp) .alumni-logo { height: clamp(22px, 4.2vh, 54px); max-width: 180px; }
-  html:has(.fp) .alumni-row-1 .alumni-logo { height: clamp(26px, 5vh, 64px); }
+  html:has(.fp) .alumni-logo { height: clamp(26px, 5vh, 64px); max-width: 220px; }
   html:has(.fp) .activity .section-title { font-size: clamp(18px, min(3.5vw, 4.4vh), 52px); }
   /* Carousel images are square (1:1) — width cap also caps height, so reserve room
      for title/dots by capping well under the panel's full vh, not just 80vh */
@@ -1081,10 +1069,23 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
   .alumni .section-title { font-size: clamp(22px, 5vw, 28px); }
   .alumni .section-sub { font-size: 15px; margin-top: 10px; }
   .alumni .section-sub br { display: none; }
-  .alumni-logos-wrap { gap: 16px; padding: 0 8px; margin-top: 16px; }
-  .alumni-row { gap: 0 12px; flex-wrap: wrap; }
-  .alumni-logo { height: auto !important; max-height: 28px; width: auto; max-width: 80px; object-fit: contain; }
-  .alumni-row-1 .alumni-logo { max-height: 34px !important; }
+  .alumni-logos-wrap {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px 8px;
+    padding: 0;
+    margin-top: 20px;
+    align-items: center;
+    justify-items: center;
+  }
+  .alumni-logo {
+    height: auto !important;
+    max-height: 32px;
+    width: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
 
   /* acts-panel + activity: same subtle dot pattern + ring accents as alumni, kept light */
   .acts-panel {
