@@ -71,6 +71,18 @@ a    { color: inherit; text-decoration: none; }
 }
 .hero .btn-hero:hover { background: rgba(14,22,64,.96); transform: translateY(-2px); }
 
+/* Hero buttons row (About Us + 리쿠르팅 기간 한정 지원서 버튼) */
+.hero .hero-btns {
+  display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
+  gap: 14px; margin-top: 38px;
+}
+.hero .hero-btns .btn-hero { margin: 0; }
+.hero .btn-hero-apply {
+  background: rgba(255,255,255,.92); color: var(--navy-deep);
+  box-shadow: 0 4px 20px rgba(10,18,45,.18);
+}
+.hero .btn-hero-apply:hover { background: #fff; transform: translateY(-2px); }
+
 /* ===== Section base ===== */
 .section { padding-block: clamp(72px, 9vw, 120px); }
 .section-title {
@@ -1009,6 +1021,8 @@ html:has(.fp) .team-struct-panel .section-title { font-size: clamp(20px, 3vw, 36
   .hero p { font-size: 12px; margin-top: 10px; text-align: center; max-width: 100%; }
   .hero p br { display: none; }
   .hero .btn-hero { margin-top: 16px; padding: 9px 22px; font-size: 12px; }
+  .hero .hero-btns { margin-top: 16px; gap: 8px; }
+  .hero .hero-btns .btn-hero { margin: 0; padding: 9px 18px; font-size: 11px; }
   /* Oversized hero-bg so parallax translateY has room without showing gap at top */
   .hero-bg { top: -25%; bottom: auto; height: 150%; }
 
